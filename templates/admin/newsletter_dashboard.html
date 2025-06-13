@@ -1,0 +1,99 @@
+{% extends "admin/layout.html" %}
+{% block title %}Newsletter Dashboard{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+  <h2 class="header-title mb-4">Newsletter Dashboard</h2>
+
+  <!-- Tabs Navigation -->
+  <ul class="nav nav-tabs mb-4" id="newsletterTabs" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active"
+              id="sent-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#sent"
+              type="button" role="tab"
+              aria-controls="sent"
+              aria-selected="true">
+        Sent Newsletters
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link"
+              id="subs-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#subs"
+              type="button" role="tab"
+              aria-controls="subs"
+              aria-selected="false">
+        Subscribers <span class="badge bg-light text-dark">{{ subscriber_count }}</span>
+      </button>
+    </li>
+  </ul>
+
+  <!-- Tabs Content -->
+  <div class="tab-content" id="newsletterTabsContent">
+
+    <!-- Sent Newsletters Tab -->
+    <div class="tab-pane fade show active" id="sent" role="tabpanel" aria-labelledby="sent-tab">
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead class="table-light">
+            <tr>
+              <th>#</th>
+              <th>Subject</th>
+              <th>Sent On</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for nl in sent_list %}
+              <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ nl.subject }}</td>
+                <td>{{ nl.sent_on.strftime('%Y-%m-%d %H:%M') }}</td>
+              </tr>
+            {% else %}
+              <tr>
+                <td colspan="3" class="text-center">No newsletters sent yet.</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <div class="text-end">
+        <a href="{{ url_for('send_newsletter') }}" class="btn btn-primary">
+          <i class="fas fa-paper-plane me-1"></i> Send New
+        </a>
+      </div>
+    </div>
+
+    <!-- Subscribers Tab -->
+    <div class="tab-pane fade" id="subs" role="tabpanel" aria-labelledby="subs-tab">
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead class="table-light">
+            <tr>
+              <th>#</th>
+              <th>Email</th>
+              <th>Subscribed On</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for s in subscribers %}
+              <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ s.email }}</td>
+                <td>{{ s.subscribed_on.strftime('%Y-%m-%d %H:%M') }}</td>
+              </tr>
+            {% else %}
+              <tr>
+                <td colspan="3" class="text-center">No subscribers yet.</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

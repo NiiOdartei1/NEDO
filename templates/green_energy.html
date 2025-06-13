@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+
+{% block title %}Green Energy{% endblock %}
+
+{% block content %}
+<!-- HERO SECTION -->
+<section class="container-fluid p-0 mb-5">
+  <img src="https://i.postimg.cc/4NzXgSj4/Green-Infra-Banner-v01.gif"
+       alt="Green Energy Banner" 
+       class="w-100" 
+       style="height: 300px; object-fit: cover;">
+</section>
+
+<!-- INTRODUCTION -->
+<section class="container mb-5">
+  <div class="row">
+    <div class="col-lg-8">
+      <h1 class="display-5 fw-bold">Green Energy</h1>
+      <p class="fst-italic">
+        Green energy is derived from natural, renewable sources like the sun, wind, water, and biomass. Unlike fossil fuels, green energy produces little to no greenhouse gases, making it essential for combating climate change and ensuring a sustainable future.
+      </p>
+      <p>
+        As the world seeks alternatives to coal, oil, and gas, the shift to renewable energy is not just an environmental imperative but an economic opportunity that creates jobs, reduces dependency, and powers inclusive development.
+      </p>
+    </div>
+    <div class="col-lg-4">
+      <img src="https://i.postimg.cc/6QCP7kLT/solar-farm.jpg" 
+           alt="Solar Panel Installation" 
+           class="img-fluid rounded shadow-sm">
+    </div>
+  </div>
+</section>
+
+<!-- TYPES OF GREEN ENERGY -->
+<section class="container mb-5">
+  <h2 class="fw-semibold">Sources of Green Energy</h2>
+  <div class="row g-4 mt-3">
+    <div class="col-md-6">
+      <div class="p-4 bg-light rounded shadow-sm">
+        <h4 class="text-success">☀️ Solar Energy</h4>
+        <p>Harnessing sunlight using photovoltaic panels or solar thermal systems. It’s abundant, scalable, and ideal for decentralized electrification.</p>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="p-4 bg-light rounded shadow-sm">
+        <h4 class="text-primary">💨 Wind Energy</h4>
+        <p>Captured through turbines, wind is a cost-effective and fast-growing clean energy source, especially viable in coastal and open areas.</p>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="p-4 bg-light rounded shadow-sm">
+        <h4 class="text-info">🌊 Hydropower</h4>
+        <p>Generates electricity by utilizing flowing water. Large-scale dams and small hydro plants help regulate power supply and manage irrigation.</p>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="p-4 bg-light rounded shadow-sm">
+        <h4 class="text-warning">🌱 Biomass & Bioenergy</h4>
+        <p>Produced from organic matter—wood, agricultural residues, and waste—converted into heat, electricity, or fuels like biodiesel.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS & CHALLENGES -->
+<section class="container mb-5">
+  <div class="bg-light rounded p-4 border-start border-5 border-success shadow-sm">
+    <h2 class="fw-semibold">Why Green Energy Matters</h2>
+    <ul>
+      <li><strong>Reduces Emissions:</strong> Lowers carbon footprint and air pollutants.</li>
+      <li><strong>Improves Health:</strong> Cleaner air and water reduce disease burden.</li>
+      <li><strong>Promotes Jobs:</strong> Green energy sectors generate millions of new employment opportunities globally.</li>
+      <li><strong>Energy Independence:</strong> Nations can produce their own clean energy, reducing reliance on imports.</li>
+    </ul>
+    <p>
+      <strong>Challenges:</strong> Initial setup costs, storage issues, and weather-dependence can limit adoption, especially in low-resource regions. But technological advancements and global support are closing these gaps.
+    </p>
+  </div>
+</section>
+
+<!-- IMPACT STATS -->
+<section class="container mb-5">
+  <div class="row text-center py-5 bg-light rounded shadow-sm">
+    <div class="col-md-4">
+      <h3 class="fw-bold text-success">29%</h3>
+      <p>Of global electricity comes from renewables (2023)</p>
+    </div>
+    <div class="col-md-4">
+      <h3 class="fw-bold text-primary">12 Million</h3>
+      <p>Jobs created in the renewable energy sector</p>
+    </div>
+    <div class="col-md-4">
+      <h3 class="fw-bold text-warning">90%</h3>
+      <p>CO₂ emissions can be cut by switching to clean energy</p>
+    </div>
+  </div>
+</section>
+
+<!-- CALL TO ACTION -->
+<section class="container mb-5">
+  <div class="p-4 bg-success text-white rounded shadow-sm">
+    <blockquote class="blockquote mb-0">
+      <p class="fs-5">"The future is green energy, sustainability, and renewable energy." – Arnold Schwarzenegger</p>
+    </blockquote>
+    <p class="mt-3">Together, we can accelerate the green transition and power our planet responsibly. Support clean energy today.</p>
+  </div>
+</section>
+
+<!-- PHOTO GALLERY -->
+<section class="container mb-5">
+  <h2 class="fw-semibold mb-4">Green Energy in Action</h2>
+  <div class="masonry-gallery">
+    {% set green_gallery = [
+      "https://i.postimg.cc/gJFPQy4L/wind-farm.gif",
+      "https://i.postimg.cc/76Wtjqqs/Biomass-Energy.gif",
+      "https://i.postimg.cc/zGZ6JDK4/tides.gif",
+      "https://i.postimg.cc/vHcb1m1B/geothermal-power.gif",
+      "https://i.postimg.cc/gcxT8LKf/hydro.gif",
+      "https://i.postimg.cc/7PzjjTTS/giphy-1.gif"
+    ] %}
+    {% for img in green_gallery %}
+      <img src="{{ img }}" class="img-fluid rounded shadow-sm mb-3" alt="Green energy project">
+    {% endfor %}
+  </div>
+</section>
+
+<!-- REFERENCES -->
+<section class="container mb-5">
+  <h2 class="fw-semibold">References</h2>
+  <ol>
+    <li><a href="https://www.iea.org/reports/renewables-2023" target="_blank">IEA Renewables 2023</a></li>
+    <li><a href="https://www.irena.org/" target="_blank">International Renewable Energy Agency (IRENA)</a></li>
+    <li><a href="https://www.un.org/en/climatechange/what-is-renewable-energy" target="_blank">UN Climate – Renewable Energy</a></li>
+    <li><a href="https://ourworldindata.org/renewable-energy" target="_blank">Our World in Data – Green Energy</a></li>
+    <li><a href="https://www.energy.gov/eere/renewable-energy" target="_blank">U.S. Department of Energy – Renewable Energy</a></li>
+  </ol>
+</section>
+
+<style>
+.masonry-gallery {
+  column-count: 2;
+  column-gap: 1rem;
+}
+.masonry-gallery img {
+  width: 100%;
+  display: block;
+  margin-bottom: 1rem;
+  break-inside: avoid;
+}
+@media (max-width: 768px) {
+  .masonry-gallery {
+    column-count: 1;
+  }
+}
+</style>
+
+{% endblock %}

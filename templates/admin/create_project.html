@@ -1,0 +1,54 @@
+{% extends "admin/layout.html" %}
+
+{% block title %}Create Project{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+  <h2 class="mb-4">Create New Project</h2>
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+
+  <form method="POST" enctype="multipart/form-data">
+    <div class="mb-3">
+      <label for="title" class="form-label">Project Title</label>
+      <input type="text" class="form-control" id="title" name="title" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="description" class="form-label">Project Description</label>
+      <textarea class="form-control" id="description" name="description" rows="4" required></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label for="location" class="form-label">Location</label>
+      <input type="text" class="form-control" id="location" name="location" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="status" class="form-label">Status</label>
+      <select class="form-select" id="status" name="status" required>
+        <option value="Active">Active</option>
+        <option value="Completed">Completed</option>
+        <option value="On Hold">On Hold</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="media" class="form-label">Upload Media (Images/Videos)</label>
+      <input type="file" class="form-control" id="media" name="media[]" accept="image/*,video/*" multiple>
+    </div>
+
+    <div class="text-end">
+      <button type="submit" class="btn btn-primary">
+        <i class="fas fa-save me-1"></i> Save Project
+      </button>
+    </div>
+  </form>
+</div>
+{% endblock %}

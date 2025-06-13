@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+
+{% block title %}Healthcare & Well-being{% endblock %}
+
+{% block content %}
+<section class="container my-5">
+    <div class="text-center mb-4">
+        <h1 class="fw-bold">Healthcare & Well-being</h1>
+        <p class="lead text-muted">Promoting access to quality health services, awareness, and innovation in public health.</p>
+    </div>
+
+    <!-- Hero/Feature Image -->
+<div class="mb-5">
+    <img 
+        src="{{ url_for('static', filename='images/HEALTHCARE.gif') }}" 
+        class="w-100 rounded shadow-sm object-fit-cover" 
+        style="height: 300px;" 
+        alt="Healthcare banner">
+</div>
+
+
+    <!-- Recent Initiatives (News-like Grid) -->
+    <section class="my-5">
+        <h2 class="fw-semibold mb-4">Recent Initiatives</h2>
+        <div class="row g-4">
+            {% for i in range(1, 4) %}
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm">
+                    <img src="{{ url_for('static', filename='images/healthcare{{ i }}.jpg') }}" class="card-img-top" alt="Health project {{ i }}">
+                    <div class="card-body">
+                        <h5 class="card-title">Community Health Outreach {{ i }}</h5>
+                        <p class="card-text text-muted">We partnered with local clinics to provide vaccinations, screenings, and health education to underserved communities.</p>
+                    </div>
+                    <div class="card-footer bg-white">
+                        <a href="#" class="btn btn-outline-primary btn-sm">Read More</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- Key Focus Areas -->
+    <section class="my-5">
+        <h2 class="fw-semibold mb-4">Key Focus Areas</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="p-4 border rounded shadow-sm h-100 bg-light">
+                    <h5>Maternal & Child Health</h5>
+                    <p class="text-muted">We support prenatal care, safe delivery, and immunization programs for mothers and children.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="p-4 border rounded shadow-sm h-100 bg-light">
+                    <h5>Health Education</h5>
+                    <p class="text-muted">Educational campaigns on hygiene, nutrition, and disease prevention in rural and urban settings.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="p-4 border rounded shadow-sm h-100 bg-light">
+                    <h5>Digital Health</h5>
+                    <p class="text-muted">Leveraging mobile health tools and telemedicine to improve access to healthcare services.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials / Quotes -->
+    <section class="my-5">
+        <h2 class="fw-semibold mb-4">Voices from the Field</h2>
+        <div class="row g-4">
+            <div class="col-md-6">
+                <blockquote class="blockquote border-start ps-3 text-muted">
+                    <p>"This initiative helped me understand how to care for my newborn. The nurses were supportive and kind."</p>
+                    <footer class="blockquote-footer">Ama K., Mother, Northern Region</footer>
+                </blockquote>
+            </div>
+            <div class="col-md-6">
+                <blockquote class="blockquote border-start ps-3 text-muted">
+                    <p>"Through the health workshops, I learned how to manage my diabetes and improve my lifestyle."</p>
+                    <footer class="blockquote-footer">Kwame A., Community Member</footer>
+                </blockquote>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="my-5">
+        <h2 class="fw-semibold mb-4">Gallery</h2>
+        
+        {% set health_images = [
+            "https://i.postimg.cc/NMsLJW5Y/injured-woman.jpg",
+            "https://i.postimg.cc/htYrq1VH/child-with-nose-IVF.jpg",
+            "https://i.postimg.cc/DfQBbsKX/baby-with-ivf.jpg",
+            "https://i.postimg.cc/Bb3pVZ2b/checking-blood-pressure.jpg",
+            "https://i.postimg.cc/J7g4ZycR/sick_child.jpg",
+            "https://i.postimg.cc/7hLG6pkX/granny-sleeping.jpg"
+        ] %}
+        
+        <div class="row g-3">
+            {% for img in health_images %}
+            <div class="col-6 col-md-4">
+                <img src="{{ img }}" class="img-fluid rounded shadow-sm" alt="Gallery image">
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    
+</section>
+{% endblock %}

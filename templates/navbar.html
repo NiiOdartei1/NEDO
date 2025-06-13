@@ -1,0 +1,126 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top custom-navbar">
+    <div class="container-fluid d-flex align-items-center justify-content-between">
+        <!-- Logo -->
+        <a class="navbar-brand d-flex align-items-center" href="/">
+            <img src="https://i.postimg.cc/jjQLhsqZ/logo.jpg" alt="Logo" height="60">
+        </a>
+
+        <!-- Mobile Toggle -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar Links -->
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav align-items-center">
+                <li class="nav-item">
+                    <a class="nav-link active" href="/">Home</a>
+                </li>
+
+                <!-- About Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        About Us
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
+                        <li><a class="dropdown-item" href="{{ url_for('mission_vision') }}">Our Mission & Vision</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('impact_article') }}">Impact Article</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('about') }}">About</a></li>
+                    </ul>
+                </li>
+
+                <!-- Programs Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="programsDropdown" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        Programs
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="programsDropdown">
+                        <li><a class="dropdown-item" href="/education">Education</a></li>
+                        <li><a class="dropdown-item" href="/healthcare">Healthcare</a></li>
+                        <li><a class="dropdown-item" href="/youth-empowerment">Youth Empowerment</a></li>
+                    </ul>
+                </li>
+
+                <!-- News -->
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('news') }}">News</a>
+                </li>
+
+                <!-- Contact -->
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('contact') }}">Contact Us</a>
+                </li>
+
+                <!-- Newsletters -->
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('notifications') }}">Notifications</a>
+                </li>
+
+                <!-- Donate Button -->
+                <li class="nav-item">
+                    <a class="btn btn-primary px-4 ms-2" href="/donate">Donate</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<style>
+  .custom-navbar {
+    height: 60px;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .custom-navbar .navbar-brand img {
+    height: 50px;
+    object-fit: contain;
+  }
+
+  body {
+    padding-top: 80px;
+  }
+
+  /* Mobile dropdown menu styling */
+  @media (max-width: 991.98px) {
+  .navbar-collapse {
+    background-color: #ffffff;
+    padding: 1rem;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 300px; /* Reduced width */
+    border-radius: 0 0 0 8px; /* optional rounded corner on bottom left */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 999;
+  }
+
+  .navbar-nav {
+    flex-direction: column;
+    align-items: flex-end !important;
+    text-align: right;
+  }
+
+  .navbar-nav .nav-item {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+
+  .navbar-nav .btn {
+    width: 100%;
+  }
+
+  .navbar-nav .dropdown-menu {
+    background-color: #f8f9fa;
+    border: none;
+    text-align: right;
+  }
+
+  .navbar-nav .dropdown-menu .dropdown-item {
+    padding-right: 1.5rem;
+  }
+}
+</style>

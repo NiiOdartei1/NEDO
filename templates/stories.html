@@ -1,0 +1,147 @@
+{% extends "base.html" %}
+
+{% block title %}Stories of Impact - Our NGO{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+<style>
+    .stories-container {
+        max-width: 1200px;
+        margin: 80px auto;
+        padding: 20px;
+    }
+
+    .story-section {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        background: white;
+        padding: 40px;
+        margin-bottom: 50px;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out;
+        cursor: pointer;
+    }
+
+    .story-section:hover {
+        transform: scale(1.02);
+    }
+
+    .story-content {
+        flex: 1;
+        padding: 20px;
+    }
+
+    .story-image {
+        flex: 1;
+        text-align: center;
+    }
+
+    .story-image img {
+        width: 100%;
+        max-width: 500px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .story-title {
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: #222;
+        margin-bottom: 15px;
+    }
+
+    .story-text {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        font-weight: 400;
+    }
+
+    @media (max-width: 768px) {
+        .story-section {
+            flex-direction: column;
+            text-align: center;
+        }
+        .story-image {
+            margin-bottom: 20px;
+        }
+    }
+</style>
+
+<div class="stories-container">
+
+    <!-- Health Story -->
+    <a href="{{ url_for('story_detail', story='health') }}" class="text-decoration-none text-dark">
+        <div class="story-section" data-aos="fade-right">
+            <div class="story-content">
+                <h2 class="story-title">Restoring Hope through Healthcare</h2>
+                <p class="story-text">Our mobile clinics have reached over 50,000 people, providing vaccinations, maternal care, and emergency medical aid...</p>
+            </div>
+            <div class="story-image">
+                <img src="{{ url_for('static', filename='images/healthcare.jpg') }}" alt="Healthcare Story">
+            </div>
+        </div>
+    </a>
+
+    <!-- Education Story -->
+    <a href="{{ url_for('story_detail', story='education') }}" class="text-decoration-none text-dark">
+        <div class="story-section" data-aos="fade-left">
+            <div class="story-image">
+                <img src="{{ url_for('static', filename='images/education.jpg') }}" alt="Education Story">
+            </div>
+            <div class="story-content">
+                <h2 class="story-title">Empowering the Next Generation Through Education</h2>
+                <p class="story-text">We have built 30+ schools and trained over 1,500 teachers...</p>
+            </div>
+        </div>
+    </a>
+
+    <!-- Food Security Story -->
+    <a href="{{ url_for('story_detail', story='food_security') }}" class="text-decoration-none text-dark">
+        <div class="story-section" data-aos="fade-right">
+            <div class="story-content">
+                <h2 class="story-title">Fighting Hunger with Sustainable Agriculture</h2>
+                <p class="story-text">Our food security initiatives have trained farmers in modern techniques...</p>
+            </div>
+            <div class="story-image">
+                <img src="{{ url_for('static', filename='images/food_security.jpg') }}" alt="Food Security Story">
+            </div>
+        </div>
+    </a>
+
+    <!-- Energy Story -->
+    <a href="{{ url_for('story_detail', story='energy') }}" class="text-decoration-none text-dark">
+        <div class="story-section" data-aos="fade-left">
+            <div class="story-image">
+                <img src="{{ url_for('static', filename='images/energy.jpg') }}" alt="Energy Story">
+            </div>
+            <div class="story-content">
+                <h2 class="story-title">Bringing Clean Energy to Rural Villages</h2>
+                <p class="story-text">Thousands of homes have been powered with clean, renewable energy...</p>
+            </div>
+        </div>
+    </a>
+
+    <!-- Climate Story -->
+    <a href="{{ url_for('story_detail', story='climate') }}" class="text-decoration-none text-dark">
+        <div class="story-section" data-aos="fade-right">
+            <div class="story-content">
+                <h2 class="story-title">Tackling Climate Change with Green Solutions</h2>
+                <p class="story-text">Climate change is a reality we can no longer ignore...</p>
+            </div>
+            <div class="story-image">
+                <img src="{{ url_for('static', filename='images/climate.jpg') }}" alt="Climate Change Story">
+            </div>
+        </div>
+    </a>
+
+</div>
+
+<script>
+    AOS.init({ duration: 1000, once: true });
+</script>
+{% endblock %}

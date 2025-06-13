@@ -1,0 +1,29 @@
+{% extends "admin/layout.html" %}
+{% block title %}Add New Admin{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+  <h2 class="header-title mb-4">Create Admin Account</h2>
+
+  <div class="card shadow-sm p-4" style="max-width: 500px;">
+    <form method="POST">
+      <div class="mb-3">
+        <label class="form-label">Username</label>
+        <input name="username" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input name="email" type="email" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input name="password" type="password" class="form-control" required>
+      </div>
+      <button type="submit" class="btn btn-success">
+        <i class="fas fa-user-check me-2"></i>Create Admin
+      </button>
+      <a href="{{ url_for('admin_users') }}" class="btn btn-secondary ms-2">Cancel</a>
+    </form>
+  </div>
+</div>
+{% endblock %}

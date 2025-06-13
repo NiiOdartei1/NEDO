@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block title %}About Us{% endblock %}
+
+{% block content %}
+<section class="container text-center my-5">
+    <h1 class="fw-bold">About Us</h1>
+    <p class="lead">Driving economic growth and sustainable development for communities worldwide.</p>
+</section>
+
+<section class="container">
+    <div class="row align-items-center">
+        <div class="col-md-6">
+            <img src="{{ url_for('static', filename='images/about_us.jpg') }}" class="img-fluid rounded shadow" alt="About Us">
+        </div>
+        <div class="col-md-6">
+            <h2>Who We Are</h2>
+            <p>National Economic Development Organisation (NEDO) is a non-governmental organization committed to promoting sustainable development, economic empowerment, and social transformation. Through education, entrepreneurship, and infrastructure projects, we equip communities with the resources and skills they need to thrive.</p>
+        </div>
+    </div>
+</section>
+
+<section class="container my-5">
+    <div class="row">
+        <div class="col-md-4">
+            <h3>Our Mission</h3>
+            <p>To empower individuals and communities by fostering economic growth, promoting innovation, and ensuring sustainable livelihoods.</p>
+        </div>
+        <div class="col-md-4">
+            <h3>Our Vision</h3>
+            <p>A world where every individual has the opportunity to contribute to and benefit from sustainable economic development.</p>
+        </div>
+        <div class="col-md-4">
+            <h3>Our Values</h3>
+            <ul>
+                <li>Integrity & Transparency</li>
+                <li>Community-Centered Development</li>
+                <li>Innovation & Sustainability</li>
+                <li>Empowerment & Inclusivity</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="container my-5">
+    <h2 class="text-center">What We Do</h2>
+    <p class="text-center">Our initiatives are designed to create lasting impact and sustainable solutions.</p>
+    
+    <div class="row text-center mt-4">
+        <div class="col-md-4">
+            <img src="{{ url_for('static', filename='images/child_studying.jpg') }}" class="img-fluid rounded shadow mb-3" alt="Education & Skills">
+            <h4>Education & Skills Development</h4>
+            <p>Providing access to education and vocational training for a skilled workforce.</p>
+        </div>
+        <div class="col-md-4">
+            <img src="{{ url_for('static', filename='images/watermelon_harvest.jpg') }}" class="img-fluid rounded shadow mb-3" alt="Agriculture">
+            <h4>Agriculture & Food Security</h4>
+            <p>Promoting modern farming techniques to ensure sustainable food production.</p>
+        </div>
+        <div class="col-md-4">
+            <img src="{{ url_for('static', filename='images/water_pump.jpg') }}" class="img-fluid rounded shadow mb-3" alt="Green Energy">
+            <h4>Green Energy & Sustainability</h4>
+            <p>Advancing renewable energy solutions to combat climate change.</p>
+        </div>
+    </div>
+</section>
+
+<section class="container my-5 text-center">
+    <h2>Meet Our Team</h2>
+    <p>Our dedicated professionals work tirelessly to drive impactful change.</p>
+    
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <img src="{{ url_for('static', filename='images/mother_praying.jpg') }}" class="img-fluid rounded-circle shadow mb-3" alt="Team Leader">
+            <h5>John Doe</h5>
+            <p>Founder & CEO</p>
+        </div>
+        <div class="col-md-4">
+            <img src="{{ url_for('static', filename='images/orphan.jpg') }}" class="img-fluid rounded-circle shadow mb-3" alt="Team Member">
+            <h5>Jane Smith</h5>
+            <p>Director of Programs</p>
+        </div>
+        <div class="col-md-4">
+            <img src="{{ url_for('static', filename='images/sprinklers_irrigating_full_farm.jpg') }}" class="img-fluid rounded-circle shadow mb-3" alt="Team Member">
+            <h5>Michael Brown</h5>
+            <p>Head of Sustainability</p>
+        </div>
+    </div>
+</section>
+
+<section class="container my-5 text-center">
+    <h2>Join Us</h2>
+    <p>Be a part of the change! Partner with us or volunteer to make a difference.</p>
+    <a href="{{ url_for('contact') }}" class="btn btn-primary">Get Involved</a>
+</section>
+
+{% endblock %}

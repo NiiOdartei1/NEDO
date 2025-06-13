@@ -1,0 +1,489 @@
+{% extends "base.html" %}
+
+{% block title %}Donate & Transform Lives{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero animated-gradient" style="
+  padding: 120px 20px;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+">
+
+<!-- SVG Animated Starfield -->
+<div class="starfield" id="starfield">
+  {% for i in range(40) %}
+    <svg class="star" viewBox="0 0 24 24" style="
+      --size: {{ 1 + (loop.index % 4) }}px;
+      --x: {{ (loop.index * 31) % 100 }}vw;
+      --y: {{ (loop.index * 17) % 100 }}vh;
+      --duration: {{ 8 + (loop.index % 6) * 3 }}s;
+      --color: {% if loop.index % 4 == 0 %}#f9f871{% elif loop.index % 4 == 1 %}#ffffff{% elif loop.index % 4 == 2 %}#add8e6{% else %}#ffe4e1{% endif %};
+    " xmlns="http://www.w3.org/2000/svg" fill="var(--color)" width="var(--size)" height="var(--size)">
+      <polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/>
+    </svg>
+  {% endfor %}
+</div>
+
+<style>
+  .animated-gradient {
+    background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #1e3c72);
+    background-size: 400% 400%;
+    animation: gradientShift 10s ease infinite;
+    position: relative;
+    overflow: hidden;
+  }
+
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .starfield {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .star {
+    position: absolute;
+    top: var(--y);
+    left: var(--x);
+    width: var(--size);
+    height: var(--size);
+    fill: var(--color);
+    opacity: 0.85;
+    animation:
+      drift var(--duration) ease-in-out infinite,
+      twinkle 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes drift {
+    0%   { transform: translate(0px, 0px) scale(1); }
+    50%  { transform: translate(-15px, 20px) scale(1.2); }
+    100% { transform: translate(15px, -20px) scale(1); }
+  }
+
+  @keyframes twinkle {
+    0%   { opacity: 0.5; }
+    50%  { opacity: 1; transform: scale(1.2); }
+    100% { opacity: 0.5; }
+  }
+</style>
+<script>
+  document.addEventListener("mousemove", (e) => {
+    const field = document.getElementById("starfield");
+    const x = (e.clientX / window.innerWidth - 0.5) * 30;
+    const y = (e.clientY / window.innerHeight - 0.5) * 30;
+    field.style.transform = `translate(${x}px, ${y}px)`;
+  });
+</script>
+
+
+  <div x-data="donationSection()" x-init="init()">
+    <h1 style="
+      font-size: 3.5em;
+      font-weight: 900;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    ">
+      Transform Lives Today
+    </h1>
+    <p style="
+      font-size: 1.5em;
+      margin: 20px 0;
+      font-weight: 500;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    ">
+      Every donation fuels real change.
+    </p>
+
+    <!-- Donation Input and CTA -->
+    <div style="margin: 30px auto; max-width: 400px; font-size: 50px;">
+      <p></p>Donate Now</p>
+    </div>
+
+    <!-- Animated Donation Impact Counter -->
+    <div style="margin-top: 40px;">
+      <h3 style="font-size: 1.8em;">
+        Join <span x-text="donationCount" style="font-weight: bold;"></span> supporters!
+      </h3>
+    </div>
+  </div>
+
+  <!-- Decorative Overlay -->
+  <div style="
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.2);
+    clip-path: polygon(0 0, 100% 100%, 0 100%);
+  "></div>
+</section>
+
+<!-- Fundraising Progress Section -->
+<section class="fundraising-progress" style="
+  padding: 50px 20px;
+  background: #fff;
+  text-align: center;
+">
+  <h2 style="font-size: 2.5em; color: #333;">Fundraising Progress</h2>
+  <p style="
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 10px;
+  ">
+    ${{ "{:,.2f}".format(total_raised) }} raised of ${{ "{:,.0f}".format(goal_amount) }} goal
+  </p>
+  <p style="font-size: 0.95em; color: #888; margin-bottom: 20px;"></p>
+  <div style="
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    background: #eee;
+    border-radius: 10px;
+    height: 30px;
+    overflow: hidden;
+  ">
+    <div id="progress-bar" style="background: #2196F3; height: 100%; transition: width 0.5s ease;"></div>
+
+<script>
+  // Put progress_percentage in quotes to avoid JS errors:
+  const progressPercentageStr = "{{ '%.2f'|format(progress_percentage) }}";
+  
+  // Convert string to float
+  const progressPercentage = parseFloat(progressPercentageStr);
+
+  const progressBar = document.getElementById('progress-bar');
+  progressBar.style.width = progressPercentage + '%';
+</script>
+
+  </div>
+  <p style="
+    font-size: 1em;
+    color: #777;
+    margin-top: 15px;
+  ">
+    <strong>{{ total_contributors }}</strong> contributor{% if total_contributors != 1 %}s{% endif %} so far
+  </p>
+</section>
+
+<!-- Recent Contributions Section -->
+<section class="recent-contributions" style="
+  padding: 50px 20px;
+  background: #F7F9FC;
+  text-align: center;
+">
+  <h2 style="font-size: 2.5em; color: #333;">Recent Contributions</h2>
+  {% if recent_contributions %}
+    <div style="max-width: 800px; margin: 20px auto; text-align: left; overflow: visible; max-height: none;">
+  <div style="display: flex; font-weight: bold; color: #444; padding: 10px 0; border-bottom: 2px solid #ccc;">
+    <div style="flex: 1;">Date</div>
+    <div style="flex: 2;">Investor</div>
+    <div style="flex: 1;">Amount</div>
+    <div style="flex: 2;">Note</div>
+  </div>
+  {% for c in recent_contributions %}
+    <div style="display: flex; padding: 10px 0; border-bottom: 1px solid #eee; font-size: 0.95em; color: #333;">
+      <div style="flex: 1;">{{ c.date_added.strftime("%Y-%m-%d") }}</div>
+      <div style="flex: 2;">{{ c.investor_name }}</div>
+      <div style="flex: 1;">${{ "{:,.2f}".format(c.amount) }}</div>
+      <div style="flex: 2;">{{ c.note or "-" }}</div>
+    </div>
+  {% endfor %}
+  <a href="{{ url_for('view_funding') }}" class="btn btn-primary mt-3">
+    See All Contributions
+  </a>
+</div>
+
+  {% else %}
+    <p style="color: #777;">No contributions yet. Be the first to donate!</p>
+  {% endif %}
+</section>
+
+<!-- Impact Section: How Donations Change Lives -->
+<section class="impact" style="
+  padding: 70px 20px;
+  background: #F7F9FC;
+  text-align: center;
+">
+  <h2 style="font-size: 2.8em; color: #333;">Your Impact</h2>
+  <p style="
+    font-size: 1.3em;
+    margin-bottom: 40px;
+    color: #555;
+  ">
+    See the difference your generosity makes across the globe.
+  </p>
+  <div class="grid" style="
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  ">
+    <div class="card" style="
+      background: #fff;
+      flex: 1 1 250px;
+      max-width: 300px;
+      margin: 10px;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    ">
+      <h3 style="font-size: 2em; color: #2196F3;">552+</h3>
+      <p style="font-size: 1.1em; color: #666;">Lives Changed</p>
+    </div>
+    <div class="card" style="
+      background: #fff;
+      flex: 1 1 250px;
+      max-width: 300px;
+      margin: 10px;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    ">
+      <h3 style="font-size: 2em; color: #64B5F6;">23+</h3>
+      <p style="font-size: 1.1em; color: #666;">Communities Supported</p>
+    </div>
+    <div class="card" style="
+      background: #fff;
+      flex: 1 1 250px;
+      max-width: 300px;
+      margin: 10px;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    ">
+      <h3 style="font-size: 2em; color: #0D47A1;">5+</h3>
+      <p style="font-size: 1.1em; color: #666;">Projects Funded</p>
+    </div>
+  </div>
+</section>
+
+<!-- Magazine-Style Section: Featured Articles -->
+<section class="featured-articles" style="
+  padding: 70px 20px;
+  background: #FAFAFA;
+  text-align: center;
+">
+  <h2 style="font-size: 2.8em; color: #333;">Explore Our Stories</h2>
+  <p style="
+    font-size: 1.3em;
+    margin-bottom: 40px;
+    color: #555;
+  ">
+    Discover inspiring articles and features on how donations are transforming lives.
+  </p>
+  <div class="grid" style="
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  ">
+    <!-- Card 1 -->
+    <a href="/articles/impact" class="card-link" style="
+      text-decoration: none;
+      color: inherit;
+    ">
+      <div class="card" style="
+        background: #fff;
+        width: 300px;
+        margin: 10px;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+      ">
+        <img src="https://i.postimg.cc/jS6spMVj/smiling_schoolgirl.jpg" alt="Impact Story" style="
+          width: 100%;
+          height: 200px;
+          object-fit: cover;
+        ">
+        <div style="padding: 20px;">
+          <h3 style="font-size: 1.8em;">Impacts</h3>
+          <p style="font-size: 1em; color: #666;">
+            Read how your contributions change lives across the globe.
+          </p>
+        </div>
+      </div>
+    </a>
+    <!-- Card 2 -->
+    <a href="/articles/innovation" class="card-link" style="
+      text-decoration: none;
+      color: inherit;
+    ">
+      <div class="card" style="
+        background: #fff;
+        width: 300px;
+        margin: 10px;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+      ">
+        <img src="https://i.postimg.cc/V6Zs7vxB/plantain-chips-factory.jpg" alt="Innovation" style="
+          width: 100%;
+          height: 200px;
+          object-fit: cover;
+        ">
+        <div style="padding: 20px;">
+          <h3 style="font-size: 1.8em;">Innovations</h3>
+          <p style="font-size: 1em; color: #666;">
+            Discover new ways we are transforming communities.
+          </p>
+        </div>
+      </div>
+    </a>
+    <!-- Card 3 -->
+    <a href="/articles/community" class="card-link" style="
+      text-decoration: none;
+      color: inherit;
+    ">
+      <div class="card" style="
+        background: #fff;
+        width: 300px;
+        margin: 10px;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+      ">
+        <img src="https://i.postimg.cc/qMbc8xDz/community-entertainment.jpg" alt="Community Stories" style="
+          width: 100%;
+          height: 200px;
+          object-fit: cover;
+        ">
+        <div style="padding: 20px;">
+          <h3 style="font-size: 1.8em;">Community Stories</h3>
+          <p style="font-size: 1em; color: #666;">
+            See how our community initiatives create lasting change.
+          </p>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- Testimonials Slider to Build Trust -->
+<section class="testimonials" style="
+  padding: 70px 20px;
+  background: linear-gradient(135deg, #021a46, #7692c2);
+  color: #fff;
+  text-align: center;
+">
+  <h2 style="font-size: 2.8em;">What Our Donors Say</h2>
+  <sl-carousel style="
+    max-width: 800px;
+    margin: 40px auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  ">
+    <sl-carousel-item style="padding: 40px;">
+      <blockquote style="
+        font-size: 1.3em;
+        margin: 0 0 20px;
+        font-style: italic;
+      ">
+        "This platform makes every donation feel powerful. I see real impact!"
+      </blockquote>
+      <p style="font-weight: bold;">- Alex, Donor</p>
+    </sl-carousel-item>
+    <sl-carousel-item style="padding: 40px;">
+      <blockquote style="
+        font-size: 1.3em;
+        margin: 0 0 20px;
+        font-style: italic;
+      ">
+        "Transparent, impactful, and inspiring. I donate here because I believe in change."
+      </blockquote>
+      <p style="font-weight: bold;">- Jamie, Philanthropist</p>
+    </sl-carousel-item>
+    <sl-carousel-item style="padding: 40px;">
+      <blockquote style="
+        font-size: 1.3em;
+        margin: 0 0 20px;
+        font-style: italic;
+      ">
+        "A small donation here goes a long way. I'm proud to be a part of this community."
+      </blockquote>
+      <p style="font-weight: bold;">- Casey, Volunteer</p>
+    </sl-carousel-item>
+  </sl-carousel>
+</section>
+
+<!-- Donation Incentives Section -->
+<section class="incentives" style="
+  padding: 70px 20px;
+  background: #fff;
+  text-align: center;
+">
+  <h2 style="font-size: 2.8em; color: #333;">Exclusive Donor Benefits</h2>
+  <p style="
+    font-size: 1.3em;
+    margin: 30px 0;
+    color: #555;
+  ">
+    Donate today and unlock exclusive updates, VIP event invites, and behind-the-scenes access.
+  </p>
+  <sl-button variant="success" size="large" style="
+    font-size: 1.3em;
+    padding: 12px 24px;
+    border-radius: 8px;
+  ">Learn More</sl-button>
+</section>
+
+<!-- Alpine.js Donation Section Script with Validation -->
+<script>
+  function donationSection() {
+    return {
+      donation: 50,
+      donationTotal: 0,
+      donationFeed: [],
+      donationCount: 0,
+      goal: 1000000,
+      error: false,
+      errorMsg: '',
+      init() {
+        const targetCount = 39;
+        const stepTime = Math.max(5, 2000 / targetCount);
+        const counterInterval = setInterval(() => {
+          if (this.donationCount < targetCount) {
+            this.donationCount++;
+          } else {
+            clearInterval(counterInterval);
+          }
+        }, stepTime);
+      },
+      get progressPercent() {
+        return Math.min((this.donationTotal / this.goal) * 100, 100);
+      },
+      get progressHue() {
+        return Math.min((this.donationTotal / this.goal) * 120, 120);
+      },
+      donate() {
+        this.error = false;
+        this.errorMsg = '';
+        if (isNaN(this.donation) || this.donation <= 0) {
+          this.error = true;
+          this.errorMsg = 'Please enter a valid donation amount greater than $0.';
+          return;
+        }
+        this.donationTotal += this.donation;
+        this.donationFeed.push({
+          amount: this.donation,
+          time: new Date().toLocaleTimeString()
+        });
+        this.donationCount++;
+        alert(`Thank you for donating $${this.donation}! Your support makes a huge impact.`);
+        this.donation = 50;
+      }
+    }
+  }
+</script>
+{% endblock %}

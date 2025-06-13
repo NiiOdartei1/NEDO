@@ -1,0 +1,12 @@
+{% extends "admin/layout.html" %}
+{% block content %}
+<div class="container">
+  <h2>Subscribe to Our Newsletter</h2>
+  <form action="{{ url_for('subscribe') }}" method="POST">
+    <div class="mb-3">
+      <input type="email" name="email" class="form-control" placeholder="Enter your email" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Subscribe</button>
+  </form>
+</div>
+{% endblock %}

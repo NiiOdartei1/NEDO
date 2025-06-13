@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+
+{% block title %}Mission & Vision - Our NGO{% endblock %}
+
+{% block content %}
+<!-- Include AOS CSS/JS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+<style>
+    /* General styling */
+    .mv-section {
+        padding: 60px 0;
+        margin-bottom: 50px;
+    }
+    .mv-section h2 {
+        font-size: 2.2rem;
+        font-weight: 600;
+        color: #222;
+        margin-bottom: 20px;
+    }
+    .mv-text {
+        font-size: 1.125rem;
+        line-height: 1.8;
+        color: #444;
+    }
+    .mv-image {
+        max-width: 100%;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    /* Collage styles */
+    .collage {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+    }
+    .collage img {
+        width: 32%;
+        border-radius: 4px;
+        object-fit: cover;
+    }
+    @media (max-width: 768px) {
+        .collage img {
+            width: 48%;
+        }
+    }
+</style>
+
+<div class="container">
+    <!-- Mission Statement Section: Text Left, Image Right -->
+    <section class="mv-section" data-aos="fade-up">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <h2>Mission Statement</h2>
+                <p class="mv-text">
+                    “To drive sustainable and inclusive economic development by empowering women, enhancing education and health,
+                    advancing agriculture and mineral resource management, and fostering industrial innovation and e-commerce.
+                    We provide strategic financial solutions and partnerships—akin to leading institutions such as the World Bank—
+                    to transform communities, reduce poverty, and build resilient economies for today and tomorrow.”
+                </p>
+                <p class="mv-text">
+                    Our mission is realized through targeted programs and community engagement that unlock potential and create lasting change.
+                    By focusing on education, skill development, and leadership opportunities, we ensure that every initiative contributes
+                    to a brighter, more equitable future.
+                </p>
+            </div>
+            <div class="col-md-6 text-center" data-aos="fade-left">
+                <img src="https://i.postimg.cc/BZhPyQTz/happy-children.jpg" alt="Mission Image" class="mv-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision Statement Section: Image Left, Text Right -->
+    <section class="mv-section" data-aos="fade-up" data-aos-delay="200">
+        <div class="row align-items-center">
+            <div class="col-md-6 text-center" data-aos="fade-right">
+                <img src="https://i.postimg.cc/qMbc8xDz/community-entertainment.jpg" alt="Vision Image" class="mv-image">
+            </div>
+            <div class="col-md-6" data-aos="fade-left">
+                <h2>Vision Statement</h2>
+                <p class="mv-text">
+                    “A future where every community thrives on a foundation of education, health, and sustainable growth;
+                    where empowered women and innovative industries unlock the full potential of human capital; and where
+                    global collaboration and smart financial systems create lasting prosperity for all.”
+                </p>
+                <p class="mv-text">
+                    We envision a world in which every individual has access to the resources and opportunities needed to reach their fullest potential.
+                    Through innovation, global partnerships, and a commitment to social equity, we are paving the way for a more inclusive and resilient society.
+                </p>
+            </div>
+        </div>
+    </section>
+</div>
+
+<script>
+    AOS.init({
+        duration: 1000,
+        once: true
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block title %}Innovation & Creativity | NEDO Global{% endblock %}
+
+{% block content %}
+<section class="container py-5" data-aos="fade-up">
+  <div class="text-center mb-5">
+    <h1 class="display-4 fw-bold text-primary">Innovation & Creativity</h1>
+    <p class="lead text-muted">How we drive forward-thinking solutions for sustainable development.</p>
+  </div>
+
+  <div class="row align-items-center mb-5" data-aos="fade-right">
+    <div class="col-md-6">
+      <img src="{{ url_for('static', filename='img/innovation-lab.jpg') }}" class="img-fluid rounded shadow" alt="Innovation Lab">
+    </div>
+    <div class="col-md-6">
+      <h3 class="fw-bold">Design Thinking for Impact</h3>
+      <p>
+        At NEDO Global, we use design thinking to frame problems, explore ideas, and rapidly prototype scalable solutions.
+        Our Innovation Lab brings together youth, engineers, and communities to co-create tools for progress.
+      </p>
+      <ul>
+        <li>Co-creation with underserved communities</li>
+        <li>Rapid prototyping workshops</li>
+        <li>Inclusive technology access hubs</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="bg-light rounded-4 p-5 my-5 shadow" data-aos="zoom-in">
+    <h2 class="fw-bold text-center mb-4">"Creativity is intelligence having fun." – Albert Einstein</h2>
+    <p class="text-center mb-0 text-muted">
+      We believe every young person has the potential to innovate. That’s why we create platforms for ideas to flourish.
+    </p>
+  </div>
+
+  <div class="row align-items-center mb-5" data-aos="fade-left">
+    <div class="col-md-6 order-md-2">
+      <img src="{{ url_for('static', filename='img/tech-in-youth.jpg') }}" class="img-fluid rounded shadow" alt="Youth and Tech">
+    </div>
+    <div class="col-md-6">
+      <h3 class="fw-bold">Empowering the Next Generation</h3>
+      <p>
+        Our innovation programs empower youth with STEM education, access to maker spaces, and mentorship from tech leaders.
+        From coding clubs in rural schools to AI challenges in urban hubs, we bridge the gap between talent and tools.
+      </p>
+      <ul>
+        <li>Robotics and coding bootcamps</li>
+        <li>Tech mentorship programs</li>
+        <li>Global innovation exchange sessions</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="bg-white border-start border-5 border-primary p-4 shadow-sm mb-5" data-aos="fade-up">
+    <h4 class="fw-bold">Innovation Spotlight: The EcoBrick Project</h4>
+    <p class="mb-1">Turning waste into housing solutions. We’ve partnered with local innovators to turn plastic waste into durable building materials. This initiative has provided over 500 homes in underserved communities.</p>
+    <a href="#" class="text-decoration-none">Read more →</a>
+  </div>
+
+  <div class="text-center" data-aos="fade-up">
+    <a href="{{ url_for('static', filename='pdf/nedo_innovation_brochure.pdf') }}" class="btn btn-primary btn-lg px-4">
+      Download Innovation Brochure
+    </a>
+  </div>
+</section>
+{% endblock %}

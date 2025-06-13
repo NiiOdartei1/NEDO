@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+{% block title %}Climate Change Adaptation & Mitigation{% endblock %}
+
+{% block content %}
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h1 class="display-5 fw-bold">Climate Change Adaptation & Mitigation</h1>
+      <p class="lead text-muted">Building resilience and reducing emissions to safeguard our planet’s future</p>
+    </div>
+
+    <!-- Introduction -->
+    <div class="row g-5 align-items-center mb-5">
+      <div class="col-md-6">
+        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" 
+             alt="Climate Action" 
+             class="img-fluid rounded shadow-sm">
+      </div>
+      <div class="col-md-6">
+        <h3 class="fw-bold mb-3">Understanding Climate Change</h3>
+        <p>Climate change represents one of the greatest challenges of our time. Rising global temperatures, shifting weather patterns, and increased frequency of extreme events threaten ecosystems, economies, and communities worldwide.</p>
+        <p>Our approach emphasizes two critical pillars:</p>
+        <ul>
+          <li><strong>Adaptation:</strong> Enhancing resilience and preparing communities to cope with the unavoidable impacts.</li>
+          <li><strong>Mitigation:</strong> Reducing greenhouse gas emissions to limit future warming.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Adaptation Strategies -->
+    <div class="mb-5">
+      <h3 class="fw-bold mb-4 text-center">Adaptation Strategies</h3>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm">
+            <img src="https://i.postimg.cc/5tWFx5FV/sustainable-agriculture.jpg" 
+                 class="card-img-top" alt="Sustainable Agriculture">
+            <div class="card-body">
+              <h5 class="card-title">Sustainable Agriculture</h5>
+              <p class="card-text">Promoting drought-resistant crops and conservation farming techniques to safeguard food security amid changing climates.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm">
+            <img src="https://i.postimg.cc/15z2XNNn/water-resource-management.gif" 
+                 class="card-img-top" alt="Water Resource Management">
+            <div class="card-body">
+              <h5 class="card-title">Water Resource Management</h5>
+              <p class="card-text">Implementing rainwater harvesting, efficient irrigation, and watershed restoration to ensure reliable water access.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm">
+            <img src="https://i.postimg.cc/tgzNF2KX/Empowering-Local-Communities-Building-Resilience-to-Climate-Change.jpg" 
+                 class="card-img-top" alt="Community Preparedness">
+            <div class="card-body">
+              <h5 class="card-title">Community Preparedness</h5>
+              <p class="card-text">Empowering local communities through early warning systems, disaster risk education, and resilient infrastructure.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mitigation Approaches -->
+    <div class="mb-5">
+      <h3 class="fw-bold mb-4 text-center">Mitigation Approaches</h3>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm">
+            <img src="https://i.postimg.cc/sfL9PBNZ/renewable-energy.jpg" 
+                 class="card-img-top" alt="Renewable Energy">
+            <div class="card-body">
+              <h5 class="card-title">Renewable Energy</h5>
+              <p class="card-text">Accelerating the adoption of solar, wind, and hydro technologies to transition away from fossil fuels.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm">
+            <img src="https://i.postimg.cc/t4NBzqPQ/energy-efficient-house.webp" 
+                 class="card-img-top" alt="Energy Efficiency">
+            <div class="card-body">
+              <h5 class="card-title">Energy Efficiency</h5>
+              <p class="card-text">Improving building designs, industrial processes, and transportation to reduce overall energy consumption.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm">
+            <img src="https://i.postimg.cc/FKPG2TDT/Reforestation-Carbon-Sequestration.jpg" 
+                 class="card-img-top" alt="Reforestation">
+            <div class="card-body">
+              <h5 class="card-title">Reforestation & Carbon Sequestration</h5>
+              <p class="card-text">Restoring forests and natural habitats to absorb CO₂, enhance biodiversity, and stabilize ecosystems.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Why It Matters -->
+    <div class="mb-5 text-center">
+      <h3 class="fw-bold mb-3">Why Our Work Matters</h3>
+      <p class="lead text-secondary">By integrating adaptation and mitigation efforts, we not only protect vulnerable populations but also contribute to global climate goals.</p>
+      <p>Our projects support resilient livelihoods, safeguard natural resources, and promote equitable development, ensuring no one is left behind in the climate transition.</p>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="text-center mt-5">
+      <h4>Join Us in Making a Difference</h4>
+      <p class="mb-4 fs-5 text-secondary">Whether you are a researcher, policymaker, business, or concerned citizen, your partnership strengthens the fight against climate change.</p>
+      <a href="{{ url_for('contact') }}" class="btn btn-primary btn-lg">Get Involved</a>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+  {{ super() }}
+{% endblock %}

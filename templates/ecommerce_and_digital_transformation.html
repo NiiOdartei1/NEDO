@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+{% block title %}E‑commerce & Digital Transformation{% endblock %}
+
+{% block content %}
+<section class="container my-5">
+  <!-- Introduction -->
+  <div class="row align-items-center mb-5">
+    <div class="col-md-7">
+      <h1 class="display-5 fw-bold">E‑commerce & Digital Transformation</h1>
+      <p class="lead text-muted">
+        As global trade shifts online, digital transformation has become essential for economies to thrive. By 2025, Africa’s e‑commerce market is projected to reach nearly US$39.44 billion, growing at a CAGR of 8.5 % :contentReference[oaicite:0]{index=0}. Ghana’s own digital acceleration programs aim to harness this potential, linking infrastructure, skills, and entrepreneurship to build a vibrant digital economy :contentReference[oaicite:1]{index=1}.
+      </p>
+    </div>
+    <div class="col-md-5 text-center">
+      <img src="https://i.postimg.cc/652FJjbj/banner.png" alt="E‑commerce Banner"
+           class="img-fluid rounded shadow-sm">
+    </div>
+  </div>
+
+  <!-- Global & Regional Growth -->
+  <section class="mb-5">
+    <h2 class="fw-bold">Global & Regional Growth</h2>
+    <p>
+      Worldwide e‑commerce revenue reached US$5.7 trillion in 2023, with Africa’s share rising rapidly :contentReference[oaicite:2]{index=2}.  
+      In 2025, the continent expects over half a billion online shoppers, fueled by increasing smartphone adoption and mobile money :contentReference[oaicite:3]{index=3}.
+    </p>
+    <p>
+      Ghana’s Digital Acceleration Project (GDAP) is fast‑tracking digital public services and skills training to seize these opportunities :contentReference[oaicite:4]{index=4}.
+    </p>
+  </section>
+
+  <!-- Digital Transformation Imperatives -->
+  <section class="mb-5">
+    <h2 class="fw-bold">Why Digital Transformation Matters</h2>
+    <p>
+      Digital transformation builds resilience and inclusion by modernizing infrastructure, processes, and services :contentReference[oaicite:5]{index=5}.  
+      It drives productivity across sectors—from finance and health to agriculture—while creating new jobs in IT, data science, and cybersecurity :contentReference[oaicite:6]{index=6}.
+    </p>
+    <p>
+      Ghana scores highly on UN E‑Participation and GovTech indices, reflecting strong foundations for e‑government and digital business :contentReference[oaicite:7]{index=7}.
+    </p>
+  </section>
+
+  <!-- PanaQet: Our Flagship E‑commerce Platform (Expanded) -->
+<section class="mb-5 p-4 bg-light rounded">
+  <h2 class="fw-bold">PanaQet: Our Flagship E‑commerce Platform</h2>
+  <p>
+    <strong>PanaQet</strong> is architected using a microservices approach, decomposing core functionality into independently deployable services—product catalog, user authentication, order management, payment processing, inventory, and analytics—to ensure modularity and resilience. :contentReference[oaicite:0]{index=0}  
+  </p>
+  <p>
+    Each microservice exposes a RESTful API and communicates via lightweight JSON messages, enabling different teams to iterate on services in parallel. The platform is containerized with Docker and orchestrated on Kubernetes, providing automatic scaling as traffic surges during sales events. :contentReference[oaicite:1]{index=1}  
+  </p>
+  <p>
+    The **payment service** integrates with multiple gateways—including Paystack and Hubtel—to support seamless mobile and card transactions, with built‑in retry and reconciliation logic to handle network interruptions.  
+  </p>
+  <p>
+    PanaQet’s **tracking dashboard** offers end users and merchants real‑time shipment visibility, leveraging event streaming (Kafka) for low‑latency updates.  
+  </p>
+  <p>
+    At its heart is the **Training Portal**, a built‑in LMS that delivers interactive tutorials on Flask, React, and DevOps fundamentals. It features embedded code sandboxes, quizzes, and video walkthroughs to reinforce learning. :contentReference[oaicite:2]{index=2}  
+  </p>
+  <p>
+    Through our **Youth Academy**, over **500 trainees** have already completed modules in web development (Flask, Django), cybersecurity (OWASP Top 10, network defense), data analysis (Python, Pandas, SQL), and systems management (Linux, Docker, CI/CD). :contentReference[oaicite:3]{index=3}  
+  </p>
+  <p>
+    This initiative aligns with UNESCO’s Global Skills Academy goals to eliminate the digital skills gap in Africa, empowering young people with coding and digital literacy to participate fully in the digital economy. :contentReference[oaicite:4]{index=4}  
+  </p>
+  <p>
+    Workplace transformation is driven by our **Mentorship Forum**, connecting trainees with seasoned engineers and cybersecurity experts. Monthly hackathons and “Ask Me Anything” sessions foster peer learning and real‑world problem solving. :contentReference[oaicite:5]{index=5}  
+  </p>
+  <p>
+    Early impact metrics show a **35% increase** in intra‑platform job placements for our graduates, with several cohort members now working as junior developers, data analysts, or DevOps engineers within NEDO‑affiliated projects. :contentReference[oaicite:6]{index=6}  
+  </p>
+  <p>
+    Looking ahead, we’re integrating AI‑driven recommendation engines (using a TensorFlow microservice) to personalize product suggestions and training pathways, ensuring PanaQet remains at the cutting edge of e‑commerce innovation. :contentReference[oaicite:7]{index=7}  
+  </p>
+</section>
+
+  <!-- Youth Training Initiative -->
+  <section class="mb-5">
+    <h2 class="fw-bold">Empowering Youth Through Digital Skills</h2>
+    <p>
+      To fuel Ghana’s digital economy, we’re launching a youth academy alongside PanaQet:  
+      • **Web Development:** Flask, Django, React, and UI/UX best practices.  
+      • **Cyber Security:** OWASP standards, network defense, and ethical hacking.  
+      • **Data Analysis:** Python (Pandas, NumPy), SQL, and visualization tools.  
+      • **Systems Management:** Linux administration, cloud orchestration, and DevOps pipelines.
+    </p>
+    <p>
+      UNESCO’s Global Skills Academy underscores the urgent need for such programs to prepare youth for 21st‑century jobs :contentReference[oaicite:8]{index=8}.  
+      Ghana’s GDAP also trains civil servants and entrepreneurs in digital competencies to support new services :contentReference[oaicite:9]{index=9}.
+    </p>
+  </section>
+
+  <!-- Interactive Gallery with Animations -->
+  <section class="mb-5">
+    <h2 class="fw-bold mb-4">Gallery</h2>
+    <div class="row g-4">
+      {% set gallery = [
+        {"img":"https://i.postimg.cc/XYZ/training1.jpg","caption":"Flask Workshop"},
+        {"img":"https://i.postimg.cc/XYZ/cybersec.jpg","caption":"Cyber Security Lab"},
+        {"img":"https://i.postimg.cc/XYZ/data1.jpg","caption":"Data Analysis Session"},
+        {"img":"https://i.postimg.cc/XYZ/devops.jpg","caption":"DevOps Training"}
+      ] %}
+      {% for item in gallery %}
+      <div class="col-md-3 col-sm-6">
+        <div class="card h-100 shadow-sm animate__animated animate__zoomIn" 
+             style="--animate-duration: 1s;">
+          <img src="{{ item.img }}" class="card-img-top" alt="{{ item.caption }}">
+          <div class="card-body text-center">
+            <p class="card-text">{{ item.caption }}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+</section>
+
+<!-- Include Animate.css for “crazy” animations -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+      integrity="sha512-b7Y1QzrWjyqhvdv+5YNiqE7J1fNSpZZ8WBIe1BlExuqwTWPRh2/hwuw4FzAUAvU7zpUFZkcw2g36S2qUKuBN8g=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}Donate{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="mb-4">Support Our Cause</h1>
+    <p>Your donation helps us continue our work. Choose an amount and donate as an individual or a business.</p>
+
+    <form id="donation-form">
+        <div class="mb-3">
+            <label for="name" class="form-label">Full Name</label>
+            <input type="text" id="name" name="name" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="email" class="form-label">Email Address</label>
+            <input type="email" id="email" name="email" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="amount" class="form-label">Amount (GHS)</label>
+            <input type="number" id="amount" name="amount" class="form-control" required min="1">
+        </div>
+
+        <button type="button" class="btn btn-success" onclick="payWithPaystack()">Donate Now</button>
+    </form>
+</div>
+
+<!-- Paystack Inline Script -->
+<script src="https://js.paystack.co/v1/inline.js"></script>
+<script>
+    function payWithPaystack() {
+        let handler = PaystackPop.setup({
+            key: 'pk_test_3f4e88eface5ee65de11eccfc55808fbc0749b76',  // Your test key
+            email: document.getElementById('email').value,
+            amount: document.getElementById('amount').value * 100, // Convert to pesewas
+            currency: "GHS",
+            ref: 'GHC_' + Math.floor((Math.random() * 1000000000) + 1),
+            metadata: {
+                custom_fields: [
+                    {
+                        display_name: "Donor Name",
+                        variable_name: "donor_name",
+                        value: document.getElementById('name').value
+                    }
+                ]
+            },
+            callback: function(response) {
+                alert('Thank you! Your donation was successful. Transaction reference: ' + response.reference);
+                // Optionally, redirect or save donation in database
+            },
+            onClose: function() {
+                alert('Transaction cancelled.');
+            }
+        });
+        handler.openIframe();
+    }
+</script>
+{% endblock %}

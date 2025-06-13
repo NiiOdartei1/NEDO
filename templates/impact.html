@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block title %}Our Programs - NGO Name{% endblock %}
+
+{% block content %}
+<style>
+    .program-card {
+        position: relative;
+        overflow: hidden;
+        border-radius: 12px;
+        transition: transform 0.3s ease-in-out;
+    }
+    .program-card:hover {
+        transform: scale(1.05);
+    }
+    .program-card img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 12px 12px 0 0;
+    }
+    .program-card .card-body {
+        background: #f8f9fa;
+        border-radius: 0 0 12px 12px;
+    }
+    .program-card .btn {
+        background: linear-gradient(135deg, #007bff, #6610f2);
+        color: white;
+        transition: background 0.3s;
+    }
+    .program-card .btn:hover {
+        background: linear-gradient(135deg, #6610f2, #007bff);
+    }
+</style>
+
+<section class="container text-center my-5">
+    <h1 class="fw-bold">Our Initiatives</h1>
+    <p class="lead">Empowering communities through innovative and sustainable solutions.</p>
+</section>
+
+<!-- GALLERY GRID -->
+<section class="container my-5">
+    <div class="row g-4">
+        {% set programs = [
+            ("Women Empowerment & Gender Equality", "/women-empowerment", "https://i.postimg.cc/HkFQNsgm/corporate-ladies.jpg"),
+            ("Education & Skills Development", "/education", "https://i.postimg.cc/L5mkVCMZ/children-writing.jpg"),
+            ("Health & Community Well-being", "/healthcare", "https://i.postimg.cc/XJLBnnTp/granny-in-pain.jpg"),
+            ("Sustainable Agriculture & Food Security", "/agriculture", "https://i.postimg.cc/ZRn4yZW9/soil_sample.jpg"),
+            ("Mineral Resource Management", "/mineral-resource-management", "https://i.postimg.cc/zB8Rmy2s/gold-bars.jpg"),
+            ("Industrial Development & Innovation", "/industrial-development-and-innovation", "https://i.postimg.cc/bvjZbGPZ/melted-metal.jpg"),
+            ("E-commerce & Digital Transformation", "/ecommerce-and-digital-transformation", "https://i.postimg.cc/g09ZDSVk/fish-pond-in-a-greenhouse.jpg"),
+            ("Financial Inclusion & Strategic Financing", "/financial-inclusion", "https://i.postimg.cc/Gm4FzT6z/cocoa-tree.jpg"),
+            ("Infrastructure Development & Economic Resilience", "/infrastructure-development-and-economic-resilience", "https://i.postimg.cc/Bt90yKMD/storage_units.jpg"),
+            ("Global Collaboration & Partnerships", "/global-collaboration-and-partnerships", "https://i.postimg.cc/pVg5xcSQ/students-in-a-physics-laboratory.jpg"),
+            ("Climate Change Adaptation & Mitigation", "/climate-change-adaptation-and-mitigation", "https://i.postimg.cc/HnPJ7BWm/greenhouse.jpg"),
+            ("Water Sustainability", "/water-sustainability-and-management", "https://i.postimg.cc/J0KNYN1Y/children-happy-with-borehole.jpg"),
+            ("Green Energy", "/green-energy", "https://i.postimg.cc/fbBMLkRn/solar_powered_water_pump.jpg"),
+            ("Circular Economy", "/circular-economy", "https://i.postimg.cc/WbBzLDh5/overview-of-field.jpg")
+        ] %}
+
+        {% for title, link, image in programs %}
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="card program-card shadow-sm h-100">
+                <img src="{{ image }}" class="card-img-top img-fluid" alt="{{ title }}">
+                <div class="card-body text-center">
+                    <h5 class="fw-bold">{{ title }}</h5>
+                    <a href="{{ link }}" class="btn btn-outline-primary w-100 mt-2">Read More</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock %}

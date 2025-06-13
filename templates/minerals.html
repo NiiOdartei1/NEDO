@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+
+{% block title %}Mineral Resource Management{% endblock %}
+
+{% block content %}
+<section class="container my-2">
+  <div class="text-center mb-4">
+    <h1 class="display-4 fw-bold">Mineral Resource Management</h1>
+    <p class="lead text-muted">
+      Exploring the discovery, extraction, processing, and sustainable management of minerals that drive our economy and development.
+    </p>
+  </div>
+
+  <!-- Overview -->
+  <section class="mb-5">
+    <h2 class="fw-semibold mb-3">Overview</h2>
+    <p class="text-justify">
+      Mineral Resource Management encompasses the full life‑cycle of mineral assets—from geological exploration and reserve estimation, through environmentally responsible extraction and processing, to reclamation and community engagement. Effective management ensures long‑term economic benefits while safeguarding ecosystems and local livelihoods.
+    </p>
+  </section>
+
+  <!-- Key Minerals -->
+  <section class="mb-5">
+    <h2 class="fw-semibold mb-3">Key Minerals</h2>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <img src="https://i.postimg.cc/XYZ/Gold.jpg" class="card-img-top" alt="Gold">
+          <div class="card-body">
+            <h5 class="card-title">Gold</h5>
+            <p class="card-text text-muted">
+              Ghana is one of Africa’s top gold producers, with both large‑scale and artisanal operations. Gold mining contributes significantly to export revenues and employment.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <img src="https://i.postimg.cc/XYZ/Bauxite.jpg" class="card-img-top" alt="Bauxite">
+          <div class="card-body">
+            <h5 class="card-title">Bauxite</h5>
+            <p class="card-text text-muted">
+              Used to produce aluminium, Ghana’s bauxite reserves have high purity levels. Sustainable bauxite mining practices are being adopted to reduce environmental impact.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <img src="https://i.postimg.cc/XYZ/Manganese.jpg" class="card-img-top" alt="Manganese">
+          <div class="card-body">
+            <h5 class="card-title">Manganese</h5>
+            <p class="card-text text-muted">
+              Manganese is vital for steel production. Ghana’s deposits are managed through partnerships to ensure value‑addition locally before export.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Extraction Techniques -->
+  <section class="mb-5">
+    <h2 class="fw-semibold mb-3">Extraction Techniques</h2>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Open‑pit and underground mining methods</li>
+      <li class="list-group-item">Hydraulic mining and dredging for alluvial deposits</li>
+      <li class="list-group-item">In‑situ leaching for certain ore bodies</li>
+      <li class="list-group-item">Artisanal and small‑scale mining (ASM) practices</li>
+    </ul>
+  </section>
+
+  <!-- Sustainability Initiatives -->
+  <section class="mb-5">
+    <h2 class="fw-semibold mb-3">Sustainability & Rehabilitation</h2>
+    <p class="text-justify">
+      Modern mineral management emphasizes minimizing ecological footprint, reclaiming mine sites through reforestation and land‑form reshaping, and engaging local communities in benefit‑sharing and oversight.
+    </p>
+    <div class="row g-4">
+      <div class="col-md-6">
+        <blockquote class="blockquote border-start ps-3 text-muted">
+          “Rehabilitation of mined lands not only restores ecosystems but also opens new avenues for agriculture and tourism.”  
+          <footer class="blockquote-footer">Ghana Minerals Commission</footer>
+        </blockquote>
+      </div>
+      <div class="col-md-6">
+        <img src="https://i.postimg.cc/XYZ/Rehabilitation.jpg" class="img-fluid rounded shadow-sm" alt="Land Rehabilitation">
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Studies -->
+  <section class="mb-5">
+    <h2 class="fw-semibold mb-3">Case Studies</h2>
+    <div class="accordion" id="caseStudies">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="caseOne">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+            AngloGold Ashanti – Obuasi Rehabilitation
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#caseStudies">
+          <div class="accordion-body">
+            Obuasi’s long‑term vision includes progressive tailings management, native species replanting, and community‑driven tourism projects on rehabilitated sites.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="caseTwo">
+          <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+            Ghana Bauxite Company – Value Addition
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#caseStudies">
+          <div class="accordion-body">
+            This project focuses on building local refining capacity so that raw bauxite is processed into alumina domestically, creating jobs and technology transfer.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Image Gallery -->
+  <section class="mb-5">
+    <h2 class="fw-semibold mb-3 text-center">Gallery</h2>
+    <div class="row g-3">
+      {% set gallery = [
+        {src: "https://i.postimg.cc/XYZ/Mine1.jpg", caption: "Open‑pit Gold Mine"},
+        {src: "https://i.postimg.cc/XYZ/Mine2.jpg", caption: "Artisanal Miners at Work"},
+        {src: "https://i.postimg.cc/XYZ/Processing.jpg", caption: "Ore Processing Plant"},
+        {src: "https://i.postimg.cc/XYZ/Reclaim1.jpg", caption: "Reforested Former Pit"},
+        {src: "https://i.postimg.cc/XYZ/Equipment.jpg", caption: "Modern Mining Equipment"},
+        {src: "https://i.postimg.cc/XYZ/Community.jpg", caption: "Community Consultation Meeting"}
+      ] %}
+      {% for item in gallery %}
+      <div class="col-6 col-md-4">
+        <div class="card h-100 shadow-sm">
+          <img src="{{ item.src }}" class="card-img-top img-fluid" alt="{{ item.caption }}">
+          <div class="card-body text-center">
+            <p class="mb-0">{{ item.caption }}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+</section>
+{% endblock %}

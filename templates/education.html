@@ -1,0 +1,175 @@
+{% extends "base.html" %}
+
+{% block title %}Education & Skills Development{% endblock %}
+
+{% block content %}
+<!-- Include AOS Library for Scroll Animations -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+<style>
+    /* Overall page styling */
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #f8f9fa;
+        color: #333;
+    }
+    .section-header {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+    .section-header h1 {
+        font-size: 2.8rem;
+        font-weight: 700;
+        color: #2c3e50;
+    }
+    .section-header p {
+        font-size: 1.2rem;
+        color: #555;
+        max-width: 800px;
+        margin: auto;
+    }
+    /* Overview Section */
+    .overview {
+        padding: 40px 0;
+    }
+    .overview p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        margin-bottom: 20px;
+    }
+    /* Programs & Plans Grid */
+    .program-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-top: 30px;
+    }
+    .program-item {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+    .program-item:hover {
+        transform: scale(1.02);
+    }
+    .program-item h3 {
+        font-size: 1.4rem;
+        margin-bottom: 10px;
+        color: #34495e;
+    }
+    .program-item p {
+        font-size: 1rem;
+        color: #666;
+    }
+    /* Benefits Section */
+    .benefits-section {
+        background: #ffffff;
+        padding: 40px;
+        border-radius: 8px;
+        margin-top: 50px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+    .benefits-section h2 {
+        text-align: center;
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 30px;
+    }
+    .benefits-list {
+        list-style: none;
+        padding: 0;
+    }
+    .benefits-list li {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        margin-bottom: 10px;
+        position: relative;
+        padding-left: 25px;
+    }
+    .benefits-list li:before {
+        content: "\2713";
+        position: absolute;
+        left: 0;
+        color: #16a085;
+        font-size: 1.2rem;
+        top: 0;
+    }
+    /* Responsive Images */
+    .img-responsive {
+        width: 100%;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+</style>
+
+<div class="container mt-5">
+    <!-- Header Section -->
+    <div class="section-header" data-aos="fade-up">
+        <h1>Education & Skills Development</h1>
+        <p>Empowering communities through transformative education and hands-on vocational training that break the cycle of poverty and fuel local innovation.</p>
+    </div>
+
+    <!-- Overview Section -->
+    <div class="row align-items-center overview" data-aos="fade-right">
+        <div class="col-md-6">
+            <img src="https://i.postimg.cc/L5mkVCMZ/children-writing.jpg" alt="Education Overview" class="img-fluid rounded shadow-sm">
+        </div>        
+        <div class="col-md-6">
+            <h2 class="fw-bold">Overview</h2>
+            <p>
+                Building capacity through education and vocational training empowers individuals to lift themselves out of poverty and contribute to community development.
+                Our approach spans both formal schooling and practical, hands-on training, ensuring that every learner gains the skills and confidence to succeed.
+            </p>
+            <p>
+                By integrating modern technology with traditional learning methods, we create inclusive education programs that reach even the most remote communities.
+                Our initiatives foster a culture of continuous learning and innovation.
+            </p>
+        </div>
+    </div>
+
+    <!-- Programs & Plans Section -->
+    <div class="mt-5" data-aos="fade-up" data-aos-delay="200">
+        <h2 class="text-center fw-bold">Programs & Plans</h2>
+        <div class="program-grid mt-4">
+            <!-- Community Night Schools -->
+            <div class="program-item">
+                <h3>Community Night Schools & Technical Workshops</h3>
+                <p>
+                    Establish local night schools and workshops modeled on successful community-based training programs, bringing education to those who work by day.
+                </p>
+            </div>
+            <!-- Digital Literacy -->
+            <div class="program-item">
+                <h3>Digital Literacy Initiatives</h3>
+                <p>
+                    Provide digital skills training for both youth and adults, enabling them to navigate the modern digital economy and foster local entrepreneurship.
+                </p>
+            </div>
+            <!-- Vocational Training -->
+            <div class="program-item">
+                <h3>Vocational Training in Agriculture & Renewable Energy</h3>
+                <p>
+                    Offer hands-on courses in sustainable agriculture, renewable energy installation, and maintenance, equipping individuals with practical skills for the future.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Benefits Section -->
+    <div class="benefits-section mt-5" data-aos="fade-up" data-aos-delay="400">
+        <h2>Benefits</h2>
+        <ul class="benefits-list">
+            <li>Enhanced employability and entrepreneurship through practical training.</li>
+            <li>Reduced illiteracy and improved self-reliance within communities.</li>
+            <li>Creation of a skilled workforce that drives local innovation and sustainable growth.</li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    AOS.init({ duration: 1000, once: true });
+</script>
+{% endblock %}

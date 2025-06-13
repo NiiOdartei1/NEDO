@@ -1,0 +1,161 @@
+{% extends "base.html" %}
+
+{% block title %}Sustainable Agriculture & Food Security{% endblock %}
+
+{% block content %}
+<!-- HERO / FEATURE -->
+<section class="container-fluid p-0 mb-5">
+  <img src="https://i.postimg.cc/Bnb5cQz4/YEA_BANNER.jpg" 
+       alt="Sustainable Agriculture Banner" 
+       class="w-100" 
+       style="height: 300px; object-fit: cover;">
+</section>
+
+<!-- INTRODUCTION -->
+<section class="container mb-5">
+  <div class="row">
+    <div class="col-lg-8">
+      <h1 class="display-5 fw-bold">Sustainable Agriculture & Food Security</h1>
+      <p class="fst-italic">
+        Sustainable agriculture meets the needs of present and future generations, ensuring profitability, environmental health, and social equity. It underpins all four pillars of food security—availability, access, utilization, stability—and drives progress toward global development goals. :contentReference[oaicite:0]{index=0}
+      </p>
+    </div>
+    <div class="col-lg-4">
+      <img src="https://i.postimg.cc/tJVb25tp/sprinklers_irrigating_full_farm.jpg" 
+           alt="Agroecology practice" 
+           class="img-fluid rounded shadow-sm">
+    </div>
+  </div>
+</section>
+
+<!-- DEFINITION -->
+<section class="container mb-5">
+  <article>
+    <h2 class="fw-semibold">What Is Sustainable Agriculture?</h2>
+    <p>
+      According to FAO, sustainable agricultural development is “the management and conservation of the natural resource base, and the orientation of technological and institutional change in such a manner as to ensure…human needs for present and future generations. Such development…conserves land, water, plant and animal genetic resources, is environmentally non‐degrading, technically appropriate, economically viable and socially acceptable.” :contentReference[oaicite:1]{index=1}
+    </p>
+  </article>
+</section>
+
+<!-- FAO VISION -->
+<section class="container mb-5">
+  <article>
+    <h2 class="fw-semibold">FAO’s Sustainable Food and Agriculture (SFA)</h2>
+    <p>
+      FAO’s SFA framework promotes integrated approaches across crops, livestock, forestry and fisheries to ensure responsible management of natural resources, while delivering economic and social benefits. It emphasizes five key principles: increasing productivity and value addition; protecting resources; improving livelihoods; enhancing resilience; and adaptive governance. :contentReference[oaicite:2]{index=2}
+    </p>
+  </article>
+</section>
+
+<!-- MDGS -->
+<section class="container mb-5">
+  <article>
+    <h2 class="fw-semibold">Millennium Development Goals & Agriculture</h2>
+    <p>
+      FAO’s most direct contribution to the MDGs was Goal 1: eradication of extreme poverty and hunger, supported by its technical expertise in agriculture, forestry, fisheries and resource management. FAO also guided efforts toward MDG 7 (environmental sustainability) by promoting sustainable practices that conserve ecosystems while enhancing food production. :contentReference[oaicite:3]{index=3}
+    </p>
+  </article>
+</section>
+
+<!-- SDGS -->
+<section class="container mb-5">
+  <article>
+    <h2 class="fw-semibold">Sustainable Development Goals & Agriculture</h2>
+    <p>
+      In the 2030 Agenda, food and agriculture lie at the heart of the SDGs. SDG 2 (Zero Hunger) explicitly targets sustainable production systems (Target 2.4), and Indicator 2.4.1 measures the proportion of agricultural area under productive and sustainable practices. :contentReference[oaicite:4]{index=4}
+    </p>
+    <ul>
+      <li><strong>SDG 2.4:</strong> By 2030, ensure sustainable food production systems and resilient practices that maintain ecosystems and improve land and soil quality (Indicator 2.4.1). :contentReference[oaicite:5]{index=5}</li>
+      <li><strong>SDG 12.2:</strong> Sustainably manage natural resources and halve per capita global food waste. :contentReference[oaicite:6]{index=6}</li>
+    </ul>
+  </article>
+</section>
+
+<!-- KEY PRACTICES -->
+<section class="container mb-5">
+  <article>
+    <h2 class="fw-semibold">Key Practices for Sustainability</h2>
+
+    <h3>Agroecology</h3>
+    <p>
+      Agroecology applies ecological principles to farming, optimizing local resources and biodiversity, reducing chemical inputs, and strengthening ecosystem services like pollination and soil health. It supports livelihoods, gender equity, and resilience to climate change. :contentReference[oaicite:7]{index=7}
+    </p>
+
+    <h3>Climate‑Smart Agriculture</h3>
+    <p>
+      Climate‑Smart Agriculture aims to sustainably increase productivity, build resilience and reduce greenhouse gas emissions through integrated land‑use approaches, drought‑tolerant varieties, improved water management and carbon‑sequestration practices. :contentReference[oaicite:8]{index=8}
+    </p>
+
+    <h3>Sustainable Intensification</h3>
+    <p>
+      Sustainable Crop Production Intensification (SCPI) helps countries boost yields on existing farmland via conservation agriculture, integrated plant nutrient management and ecosystem approaches—supporting food security without expanding land use. :contentReference[oaicite:9]{index=9}
+    </p>
+  </article>
+</section>
+
+<!-- DATA & STATISTICS -->
+<section class="container mb-5">
+  <article>
+    <h2 class="fw-semibold">Data & Statistics</h2>
+    <p>
+      FAOSTAT, FAO’s corporate statistical database, reports that global crop yields have grown by over 150 % since 1961, while the share of agricultural land under sustainable management (Indicator 2.4.1) is now monitored in over 90 countries. :contentReference[oaicite:10]{index=10}
+    </p>
+  </article>
+</section>
+
+<!-- GALLERY -->
+<section class="container mb-5">
+  <h2 class="fw-semibold mb-4">Gallery of Sustainable Practices</h2>
+  <div class="masonry-gallery">
+    {% set gallery = [
+      "https://i.postimg.cc/dVC7L2bM/harvested-tomatoes.jpg",
+      "https://i.postimg.cc/9FKRm8Nt/harvested-potatoes.jpg",
+      "https://i.postimg.cc/pVBJdHDQ/cocoa.jpg",
+      "https://i.postimg.cc/fTtyr7T3/orange-production-line.jpg",
+      "https://i.postimg.cc/nczBcQVZ/fanta-production-line.jpg",
+      "https://i.postimg.cc/TPYpQzyx/watermelon_harvest.jpg"
+    ] %}
+    {% for img in gallery %}
+      <div class="masonry-item mb-3">
+        <img src="{{ img }}" class="img-fluid rounded shadow-sm w-100" alt="Sustainable practice">
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- REFERENCES -->
+<section class="container mb-5">
+  <h2 class="fw-semibold">References</h2>
+  <ol>
+    <li><a href="https://www.fao.org/sustainability/en">FAO. Sustainable Food and Agriculture (SFA). :contentReference[oaicite:11]{index=11}</a></li>
+    <li><a href="https://www.fao.org/4/u8480e/u8480e0l.htm">FAO. Definition of Sustainable Agricultural Development. :contentReference[oaicite:12]{index=12}</a></li>
+    <li><a href="https://openknowledge.fao.org/server/api/core/bitstreams/fd85c6b5-0755-4818-a005-2a3ea4fa28d1/content">FAO. SDG Indicator 2.4.1 Metadata. :contentReference[oaicite:13]{index=13}</a></li>
+    <li><a href="https://openknowledge.fao.org/fileadmin/user_upload/mdg/doc/booklet_mdg_en.pdf">FAO. FAO & the MDGs. :contentReference[oaicite:14]{index=14}</a></li>
+    <li><a href="https://www.fao.org/family-farming/detail/en/c/1605837/">FAO. SDGs & Agriculture. :contentReference[oaicite:15]{index=15}</a></li>
+    <li><a href="https://www.fao.org/agroecology/overview/agroecology-and-the-sustainable-development-goals/en">FAO. Agroecology & the SDGs. :contentReference[oaicite:16]{index=16}</a></li>
+    <li><a href="https://www.fao.org/agriculture/crops/thematic-sitemap/theme/spi/scpi-home/framework/sustainable-intensification-in-fao/en/">FAO. Sustainable Crop Production Intensification. :contentReference[oaicite:17]{index=17}</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/Climate-smart_agriculture">Wikipedia. Climate‑Smart Agriculture. :contentReference[oaicite:18]{index=18}</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/Food_and_Agriculture_Organization_Corporate_Statistical_Database">Wikipedia. FAOSTAT Overview. :contentReference[oaicite:19]{index=19}</a></li>
+    <li><a href="https://www.fao.org/in-action/incentives-for-ecosystem-services/policy/sutainable-food-and-agriculture/en/">FAO. Integrated Approach to SFA. :contentReference[oaicite:20]{index=20}</a></li>
+  </ol>
+</section>
+
+<style>
+.masonry-gallery {
+  column-count: 2;
+  column-gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .masonry-gallery {
+    column-count: 3;
+  }
+}
+
+.masonry-item {
+  break-inside: avoid;
+}
+</style>
+
+{% endblock %}

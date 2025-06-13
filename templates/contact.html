@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}Contact Us{% endblock %}
+
+{% block content %}
+<section class="container text-center my-2">
+    <h1 class="fw-bold">Contact Us</h1>
+    <p class="lead">Get in touch with us for inquiries, partnerships, or support.</p>
+</section>
+
+<section class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Our Office</h2>
+            <p><strong>National Economic Development Organisation</strong></p>
+            <p>123 Development Avenue, Accra, Ghana</p>
+            <p><strong>Phone:</strong> +233 123 456 789</p>
+            <p><strong>Email:</strong> contact@nedo.org</p>
+            <p><strong>Working Hours:</strong> Mon - Fri, 8:00 AM - 5:00 PM</p>
+        </div>
+        <div class="col-md-6">
+            <h2>Send Us a Message</h2>
+            <form action="{{ url_for('contact') }}" method="POST">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Full Name</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="message" class="form-label">Your Message</label>
+                    <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="row text-center mt-5">
+        <h2 class="fw-bold">Follow Us</h2>
+        <p class="text-muted">Stay connected through our social platforms</p>
+        <div class="d-flex justify-content-center gap-4">
+            <a href="https://www.instagram.com/nedoglobalgh/" target="_blank" class="text-dark fs-3">
+                <i class="bi bi-instagram"></i>
+            </a>
+            <a href="https://www.youtube.com/channel/UCX0iFauIbMWXF3Wxq0yEM_A/" target="_blank" class="text-dark fs-3">
+                <i class="bi bi-youtube"></i>
+            </a>
+            <a href="https://x.com/nedoglobal81369" target="_blank" class="text-dark fs-3">
+                <i class="bi bi-twitter-x"></i>
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}

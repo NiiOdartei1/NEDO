@@ -1,0 +1,49 @@
+{% extends "admin/layout.html" %}
+
+{% block title %}Add Investor Contribution{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+  <h2 class="mb-3">Add Investor Contribution</h2>
+
+  <form method="POST" action="{{ url_for('add_contribution') }}">
+    <div class="mb-3">
+      <label for="investor_name" class="form-label">Investor Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="investor_name"
+        name="investor_name"
+        required
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="amount" class="form-label">Amount (USD)</label>
+      <input
+        type="number"
+        step="0.01"
+        class="form-control"
+        id="amount"
+        name="amount"
+        placeholder="e.g. 5000.00"
+        required
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="note" class="form-label">Note (optional)</label>
+      <input
+        type="text"
+        class="form-control"
+        id="note"
+        name="note"
+        placeholder="e.g. &quot;Angel round&quot;"
+      />
+    </div>
+
+    <button type="submit" class="btn btn-success">Submit Contribution</button>
+    <a href="{{ url_for('view_funding') }}" class="btn btn-secondary ms-2">Cancel</a>
+  </form>
+</div>
+{% endblock %}

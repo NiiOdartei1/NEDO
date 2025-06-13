@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block title %}Global Collaboration & Partnerships{% endblock %}
+
+{% block content %}
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h1 class="display-5 fw-bold">Global Collaboration & Partnerships</h1>
+      <p class="lead text-muted">Working together for a sustainable, inclusive future by fostering meaningful alliances worldwide.</p>
+    </div>
+
+    <!-- Partnership Highlights -->
+    <div class="row g-5 align-items-center">
+      <div class="col-md-6">
+        <img src="https://i.postimg.cc/pVg5xcSQ/students-in-a-physics-laboratory.jpg" 
+             alt="Global Collaboration" 
+             class="img-fluid rounded shadow-sm">
+      </div>
+      <div class="col-md-6 d-flex flex-column justify-content-center">
+        <h3 class="fw-bold mb-3">Global Networks for Greater Impact</h3>
+        <p>Our commitment transcends geographical boundaries, uniting stakeholders from diverse sectors to create sustainable change. By collaborating with international development agencies, philanthropic foundations, and grassroots organizations, we foster innovation and amplify impact.</p>
+        <ul class="mb-4">
+          <li><strong>Strategic Alliances:</strong> Partnering with renowned foundations to pool resources and expertise for maximum effect.</li>
+          <li><strong>Cross-continental Knowledge Exchanges:</strong> Facilitating dialogues and workshops that enable sharing of best practices and lessons learned across continents.</li>
+          <li><strong>Policy-Shaping Collaborations:</strong> Influencing global development policies through evidence-based advocacy and joint initiatives.</li>
+        </ul>
+        <p>These collaborations enable us to tackle complex global challenges such as climate change, education inequality, and economic empowerment with a united voice.</p>
+      </div>
+    </div>
+
+    <!-- Feature Grid -->
+    <div class="row text-center mt-5">
+      <div class="col-md-4 mb-4">
+        <div class="p-4 shadow-sm bg-white rounded h-100 d-flex flex-column">
+          <div class="fs-1 text-primary mb-3">🌍</div>
+          <h5>International Reach</h5>
+          <p class="text-muted flex-grow-1">With partners spanning Africa, Europe, Asia, and the Americas, we ensure that our initiatives have a truly global footprint.</p>
+          <small class="text-secondary">Our networks enable on-the-ground action in over 30 countries worldwide.</small>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="p-4 shadow-sm bg-white rounded h-100 d-flex flex-column">
+          <div class="fs-1 text-success mb-3">🤝</div>
+          <h5>Multi-Stakeholder Engagement</h5>
+          <p class="text-muted flex-grow-1">We engage governments, private sector, civil society, and local communities to ensure inclusive and sustainable outcomes.</p>
+          <small class="text-secondary">Our forums encourage transparent dialogue and collective decision-making.</small>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="p-4 shadow-sm bg-white rounded h-100 d-flex flex-column">
+          <div class="fs-1 text-warning mb-3">💡</div>
+          <h5>Innovation Through Unity</h5>
+          <p class="text-muted flex-grow-1">By integrating technology, policy expertise, and educational outreach, we foster creative solutions to pressing challenges.</p>
+          <small class="text-secondary">Our collaborative innovation labs pilot projects that can be scaled worldwide.</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="text-center mt-5">
+      <h4 class="mb-3">Interested in Partnering With Us?</h4>
+      <p class="mb-4 fs-5 text-secondary">We are continuously looking to expand our network of partners. Whether you're an NGO, foundation, government entity, or private sector leader, your involvement can help us drive lasting change.</p>
+      <a href="{{ url_for('contact') }}" class="btn btn-outline-primary btn-lg">Become a Partner</a>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+  {{ super() }}
+{% endblock %}

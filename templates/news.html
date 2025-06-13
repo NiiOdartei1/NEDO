@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}Latest News and Projects{% endblock %}
+
+{% block content %}
+    <div class="container mt-0">
+        <h1 class="text-center mb-0">Latest News and Updates</h1>
+
+        <!-- News Section -->
+        <section id="news" class="mb-5">
+            <h2 class="text-center mb-4">Latest News</h2>
+            <div class="row">
+                {% for article in news_articles %}
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <img src="{{ article.image_url or 'https://via.placeholder.com/300' }}" class="card-img-top" alt="News Image">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ article.title }}</h5>
+                                <p class="card-text">{{ article.content[:100] }}...</p>
+                                <a href="{{ url_for('news_detail', id=article.id) }}" class="btn btn-primary">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+
+        <!-- Featured Projects Section -->
+        <section id="featured-projects" class="bg-light py-0">
+            <h2 class="text-center mb-4">Featured Projects</h2>
+            <div class="row">
+                {% for project in featured_projects %}
+                    <div class="col-md-6 mb-4">
+                        <div class="card">
+                            <img src="{{ project.image_url or 'https://via.placeholder.com/500' }}" class="card-img-top" alt="Project Image">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ project.title }}</h5>
+                                <p class="card-text">{{ project.description }}</p>
+                                <a href="{{ project.link }}" class="btn btn-primary">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+    </div>
+{% endblock %}

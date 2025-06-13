@@ -1,0 +1,196 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+  .notif-container {
+    display: flex;
+    height: 80vh;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .notif-list {
+    width: 35%;
+    min-width: 280px;
+    border-right: 1px solid #ddd;
+    overflow-y: auto;
+  }
+
+  .notif-details {
+    flex-grow: 1;
+    padding: 1rem;
+    overflow-y: auto;
+    position: relative;
+  }
+
+  .notif-item:hover {
+    background-color: #f8f9fa;
+    cursor: pointer;
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    color: #888;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .close-btn:hover {
+    color: #000;
+  }
+
+  @media (max-width: 768px) {
+    .notif-list {
+      width: 100%;
+      border-right: none;
+    }
+    .notif-details {
+      display: none;
+    }
+
+    .notif-details.show {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #fff;
+      z-index: 10;
+      padding: 1rem;
+      overflow-y: auto;
+    }
+  }
+</style>
+
+<div class="container py-4">
+  <h3 class="mb-3">Notifications</h3>
+  <div class="notif-container">
+    <!-- Notification List -->
+    <div class="notif-list list-group" id="notifList">
+      {% for n in newsletters %}
+        <a class="list-group-item list-group-item-action notif-item"
+           data-id="{{ loop.index0 }}"
+           data-subject="{{ n.subject }}"
+           data-message="{{ n.message|escape }}"
+           data-date="{{ n.sent_on.strftime('%b %d, %Y %I:%M %p') }}"
+           data-token="{{ n.unsubscribe_token }}">
+          <div class="fw-bold">{{ n.subject }}</div>
+          <div class="small text-muted">{{ n.sent_on.strftime('%b %d, %Y %I:%M %p') }}</div>
+        </a>
+      {% endfor %}
+    </div>
+
+    <!-- Notification Detail View -->
+    <div class="notif-details" id="notifDetails">
+      <button class="close-btn" id="closeNotif" aria-label="Close">&times;</button>
+      <h4 id="notifSubject">Select a notification</h4>
+      <small class="text-muted" id="notifDate"></small>
+      <hr>
+      <div id="notifMessage" class="mt-3"></div>
+
+      <div class="mt-4" id="unsubscribeContainer" style="display: none;">
+        <a id="unsubscribeLink" href="#" class="btn btn-outline-danger">Unsubscribe</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const items = document.querySelectorAll('.notif-item');
+  const details = document.getElementById('notifDetails');
+  const subject = document.getElementById('notifSubject');
+  const message = document.getElementById('notifMessage');
+  const date = document.getElementById('notifDate');
+  const unsubscribeLink = document.getElementById('unsubscribeLink');
+  const unsubscribeContainer = document.getElementById('unsubscribeContainer');
+  const closeBtn = document.getElementById('closeNotif');
+
+  function clearNotificationView() {
+    subject.textContent = "Select a notification";
+    message.innerHTML = "";
+    date.textContent = "";
+    unsubscribeContainer.style.display = "none";
+    details.classList.remove('show');
+  }
+
+  items.forEach(item => {
+    item.addEventListener('click', () => {
+      subject.textContent = item.dataset.subject;
+      message.innerHTML = item.dataset.message;
+      date.textContent = item.dataset.date;
+
+      const token = item.dataset.token;
+      if (token) {
+        unsubscribeLink.href = `/unsubscribe/${token}`;
+        unsubscribeContainer.style.display = 'block';
+      } else {
+        unsubscribeContainer.style.display = 'none';
+      }
+
+      if (window.innerWidth <= 768) {
+        details.classList.add('show');
+      }
+    });
+  });
+
+  closeBtn.addEventListener('click', clearNotificationView);
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+      details.classList.remove('show');
+    }
+  });
+
+  window.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      clearNotificationView();
+    }
+  });
+</script>
+
+<!-- Optional: WebSocket Hook -->
+<script src="https://cdn.socket.io/4.6.1/socket.io.min.js"></script>
+<script>
+  const socket = io();
+
+  socket.on('new_notification', function(data) {
+    const list = document.getElementById('notifList');
+    const li = document.createElement('a');
+    li.className = "list-group-item list-group-item-action notif-item";
+    li.dataset.id = list.children.length;
+    li.dataset.subject = data.subject;
+    li.dataset.message = data.message;
+    li.dataset.date = data.date;
+    li.dataset.token = data.token || "";
+
+    li.innerHTML = `<div class="fw-bold">${data.subject}</div>
+                    <div class="small text-muted">${data.date}</div>`;
+
+    li.addEventListener('click', () => {
+      document.getElementById('notifSubject').textContent = data.subject;
+      document.getElementById('notifMessage').innerHTML = data.message;
+      document.getElementById('notifDate').textContent = data.date;
+
+      if (data.token) {
+        document.getElementById('unsubscribeLink').href = `/unsubscribe/${data.token}`;
+        document.getElementById('unsubscribeContainer').style.display = 'block';
+      } else {
+        document.getElementById('unsubscribeContainer').style.display = 'none';
+      }
+
+      if (window.innerWidth <= 768) {
+        document.getElementById('notifDetails').classList.add('show');
+      }
+    });
+
+    list.prepend(li);
+  });
+</script>
+{% endblock %}

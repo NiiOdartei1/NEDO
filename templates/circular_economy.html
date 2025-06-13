@@ -1,0 +1,170 @@
+{% extends "base.html" %}
+
+{% block title %}Circular Economy{% endblock %}
+
+{% block content %}
+
+<!-- HERO SECTION -->
+<section class="container-fluid p-0 mb-5">
+  <img src="https://i.postimg.cc/NFL8qXdm/circular-economy-banner.webp"
+       alt="Circular Economy Banner" 
+       class="w-100" 
+       style="height: 300px; object-fit: cover;">
+</section>
+
+<!-- INTRODUCTION -->
+<section class="container mb-5">
+  <div class="row">
+    <div class="col-lg-8">
+      <h1 class="display-5 fw-bold">Circular Economy</h1>
+      <p class="fst-italic">
+        A circular economy is a systemic approach to economic development designed to benefit businesses, society, and the environment. Unlike the linear economy ("take, make, waste"), the circular model is regenerative by design and aims to gradually decouple growth from the consumption of finite resources.
+      </p>
+      <p>
+        This concept reimagines production and consumption by designing out waste and pollution, keeping products and materials in use, and regenerating natural systems. It’s about turning waste into value, prolonging product lifecycles, and designing smarter from the outset.
+      </p>
+    </div>
+    <div class="col-lg-4">
+      <img src="https://i.postimg.cc/CL3GXzkn/circular-economy.jpg" 
+           alt="Circular Economy Illustration" 
+           class="img-fluid rounded shadow-sm">
+    </div>
+  </div>
+</section>
+
+<!-- CORE PRINCIPLES -->
+<section class="container mb-5">
+  <h2 class="fw-semibold">Core Principles of Circular Economy</h2>
+  <div class="row g-4 mt-3">
+    <div class="col-md-4">
+      <div class="p-4 bg-light rounded shadow-sm">
+        <h4 class="text-success">♻️ Design Out Waste & Pollution</h4>
+        <p>Products and systems are intentionally created to eliminate waste and prevent environmental damage from the outset.</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="p-4 bg-light rounded shadow-sm">
+        <h4 class="text-primary">🔄 Keep Materials in Use</h4>
+        <p>Materials are reused, repaired, refurbished, and recycled to extend their life and reduce the need for new resources.</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="p-4 bg-light rounded shadow-sm">
+        <h4 class="text-warning">🌱 Regenerate Natural Systems</h4>
+        <p>Processes are designed to benefit nature by returning nutrients and improving biodiversity rather than depleting it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIFECYCLE MODEL -->
+<section class="container mb-5">
+  <h2 class="fw-semibold">Product Lifecycle in a Circular Economy</h2>
+  <img src="https://i.postimg.cc/FKZnhjVB/Circular-economy-design-03.jpg" 
+       alt="Circular Lifecycle Model" 
+       class="img-fluid rounded shadow-sm my-4">
+  <p>
+    The circular model replaces the traditional linear “take-make-dispose” path with a cyclical approach:
+  </p>
+  <ul>
+    <li><strong>Design:</strong> Smart design to prevent waste and ensure longevity.</li>
+    <li><strong>Production:</strong> Sustainable sourcing, clean energy, and low-impact manufacturing.</li>
+    <li><strong>Consumption:</strong> Promotes sharing, leasing, reusing, and repairing.</li>
+    <li><strong>Collection:</strong> Systems in place to collect used products efficiently.</li>
+    <li><strong>Recycling:</strong> Materials are recycled or upcycled back into the production loop.</li>
+  </ul>
+</section>
+
+<!-- BENEFITS & CHALLENGES -->
+<section class="container mb-5">
+  <div class="bg-light rounded p-4 border-start border-5 border-success shadow-sm">
+    <h2 class="fw-semibold">Benefits & Challenges</h2>
+    <ul>
+      <li><strong>Environmental:</strong> Reduced landfill waste, lower emissions, cleaner air and water.</li>
+      <li><strong>Economic:</strong> Drives innovation, cuts production costs, opens new markets.</li>
+      <li><strong>Social:</strong> Creates jobs in repair, remanufacturing, and material recovery.</li>
+    </ul>
+    <p>
+      <strong>Challenges:</strong> Lack of infrastructure, need for cultural shift, and regulatory gaps. Transitioning requires collaboration across governments, industries, and communities.
+    </p>
+  </div>
+</section>
+
+<!-- IMPACT STATS -->
+<section class="container mb-5">
+  <div class="row text-center py-5 bg-light rounded shadow-sm">
+    <div class="col-md-4">
+      <h3 class="fw-bold text-success">45%</h3>
+      <p>Of global emissions can be reduced by transitioning to circular systems</p>
+    </div>
+    <div class="col-md-4">
+      <h3 class="fw-bold text-primary">$4.5 Trillion</h3>
+      <p>Potential economic benefit by 2030 (Accenture estimate)</p>
+    </div>
+    <div class="col-md-4">
+      <h3 class="fw-bold text-warning">700K+</h3>
+      <p>Jobs could be created in Europe alone through circular practices</p>
+    </div>
+  </div>
+</section>
+
+<!-- CALL TO ACTION -->
+<section class="container mb-5">
+  <div class="p-4 bg-success text-white rounded shadow-sm">
+    <blockquote class="blockquote mb-0">
+      <p class="fs-5">"Waste is a design flaw. The circular economy gives us a blueprint for change." – Ellen MacArthur Foundation</p>
+    </blockquote>
+    <p class="mt-3">We all have a role to play—from individuals to corporations. Start rethinking how you consume and dispose. Choose circular.</p>
+  </div>
+</section>
+
+<!-- IMAGE GALLERY -->
+<section class="container mb-5">
+  <h2 class="fw-semibold mb-4">Circular Innovations Around the World</h2>
+  <div class="masonry-gallery">
+    {% set circular_gallery = [
+      "https://i.postimg.cc/BnXKSDfn/upcycling-2.jpg",
+      "https://i.postimg.cc/g0zHHjC9/upcycling.jpg",
+      "https://i.postimg.cc/Rh9YmXjy/recyclable-1.webp",
+      "https://i.postimg.cc/V6yMHNTL/indoor-farming.jpg",
+      "https://i.postimg.cc/PrX7FVb8/recyclable-3.jpg",
+      "https://i.postimg.cc/gcq5sbhW/recyclable-2.jpg"
+    ] %}
+    {% for img in circular_gallery %}
+      <img src="{{ img }}" class="img-fluid rounded shadow-sm mb-3" alt="Circular economy project">
+    {% endfor %}
+  </div>
+</section>
+
+<!-- REFERENCES -->
+<section class="container mb-5">
+  <h2 class="fw-semibold">References</h2>
+  <ol>
+    <li><a href="https://ellenmacarthurfoundation.org" target="_blank">Ellen MacArthur Foundation</a></li>
+    <li><a href="https://www.oecd.org/environment/circulareconomy.htm" target="_blank">OECD - Circular Economy</a></li>
+    <li><a href="https://www.unep.org/explore-topics/resource-efficiency/what-we-do/circular-economy" target="_blank">UNEP - Circular Economy</a></li>
+    <li><a href="https://www.weforum.org/agenda/archive/circular-economy/" target="_blank">World Economic Forum – Circular Economy</a></li>
+    <li><a href="https://www.accenture.com/us-en/insights/circular-economy-index" target="_blank">Accenture Circular Economy Index</a></li>
+  </ol>
+</section>
+
+<!-- Masonry CSS -->
+<style>
+.masonry-gallery {
+  column-count: 2;
+  column-gap: 1rem;
+}
+.masonry-gallery img {
+  width: 100%;
+  display: block;
+  margin-bottom: 1rem;
+  break-inside: avoid;
+}
+@media (max-width: 768px) {
+  .masonry-gallery {
+    column-count: 1;
+  }
+}
+</style>
+
+{% endblock %}

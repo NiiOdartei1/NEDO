@@ -1,0 +1,49 @@
+{% extends "admin/layout.html" %}
+
+{% block title %}Current Funding Status{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+  <h2 class="mb-3">Current Funding Status</h2>
+
+  {% if contributions %}
+    <p>
+      <strong>Total Contributions:</strong>
+      ${{ "{:,.2f}".format(contributions | sum(attribute='amount')) }}
+    </p>
+
+    <hr class="my-4" />
+
+    <h4>Investor Contributions</h4>
+    <table class="table table-sm table-striped">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Investor</th>
+          <th>Amount (USD)</th>
+          <th>Note</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for c in contributions %}
+          <tr>
+            <td>{{ c.date_added.strftime("%Y-%m-%d %H:%M") }}</td>
+            <td>{{ c.investor_name }}</td>
+            <td>${{ "{:,.2f}".format(c.amount) }}</td>
+            <td>{{ c.note or "-" }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <a href="{{ url_for('add_contribution') }}" class="btn btn-primary mt-3">
+      Log a New Contribution
+    </a>
+  {% else %}
+    <p class="text-danger">No contributions recorded yet.</p>
+    <a href="{{ url_for('add_contribution') }}" class="btn btn-primary mt-3">
+      Add First Contribution
+    </a>
+  {% endif %}
+</div>
+{% endblock %}

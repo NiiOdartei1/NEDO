@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+
+{% block title %}Infrastructure Development & Economic Resilience{% endblock %}
+
+{% block content %}
+<div class="container mt-5 mb-5">
+
+  <!-- Intro Section -->
+  <section class="impact-intro mb-5" data-aos="fade-up">
+    <h1 class="section-title">Infrastructure Development &amp; Economic Resilience in Ghana</h1>
+    <p class="lead" data-aos="fade-right" data-aos-delay="100">
+      Ghana’s economy grew by 6.9% in Q2 2024—the fastest pace in five years—driven by strong performance in mining, construction and services. <!-- :contentReference[oaicite:0]{index=0} -->
+    </p>
+    <p data-aos="fade-left" data-aos-delay="200">
+      By end-2024, Ghana recorded a current-account surplus of 3.2% of GDP and built gross international reserves to US $8.98 billion, bolstering its external buffers. <!-- :contentReference[oaicite:1]{index=1} -->
+    </p>
+  </section>
+
+  <!-- Road & Transport -->
+  <section class="impact-section transport mb-5" data-aos="fade-up" data-aos-delay="100">
+    <h2 class="section-subtitle" data-aos="fade-down">Road &amp; Transport</h2>
+    <div class="row align-items-center">
+      <div class="col-md-6 mb-4" data-aos="fade-right" data-aos-delay="200">
+        <p>
+          Under the Ghana Infrastructure Plan (GIP) 2018–2047, over 182 297 km of new trunk, feeder and urban roads will be built—including the East–West corridor linking Côte d’Ivoire and Togo—to strengthen regional trade. <!-- :contentReference[oaicite:2]{index=2} -->
+        </p>
+        <p>
+          The GH₵ 339 million expansion of the Accra–Tema Motorway has transformed it into a modern 10-lane highway, decongesting the capital and supporting economic activity. <!-- :contentReference[oaicite:3]{index=3} -->
+        </p>
+      </div>
+      <div class="col-md-6 text-center" data-aos="zoom-in" data-aos-delay="300">
+        <img src="{{ url_for('static', filename='images/road_network.jpg') }}"
+             alt="New Trunk &amp; Feeder Roads"
+             class="img-fluid rounded shadow-sm">
+      </div>
+    </div>
+  </section>
+
+  <!-- Energy -->
+  <section class="impact-section energy mb-5" data-aos="fade-up" data-aos-delay="150">
+    <h2 class="section-subtitle" data-aos="fade-down">Energy</h2>
+    <div class="row align-items-center">
+      <div class="col-md-6 text-center mb-4" data-aos="zoom-in" data-aos-delay="200">
+        <img src="{{ url_for('static', filename='images/solar_farm.jpg') }}"
+             alt="Utility-Scale Solar Farm"
+             class="img-fluid rounded shadow-sm">
+      </div>
+      <div class="col-md-6" data-aos="fade-left" data-aos-delay="300">
+        <p>
+          Installed capacity is set to jump from 3 800 MW in 2018 to 50 168 MW by 2047, cutting transmission losses from 22.8% to 6% and raising per-capita generation from 348 kWh to 5 850 kWh. <!-- :contentReference[oaicite:4]{index=4} -->
+        </p>
+        <p>
+          Renewables will grow from 1% to 18% of the mix (38 MW → 9 000 MW) under a new Renewable Energy Authority, spurring local content and jobs. <!-- :contentReference[oaicite:5]{index=5} -->
+        </p>
+        <p>
+          Ghana plans its first nuclear power plant by 2029, targeting 12 800 MW of baseload supply to underpin industrialisation. <!-- :contentReference[oaicite:6]{index=6} -->
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Water & Sanitation -->
+  <section class="impact-section water mb-5" data-aos="fade-up" data-aos-delay="200">
+    <h2 class="section-subtitle" data-aos="fade-down">Water, Sanitation &amp; Waste</h2>
+    <div class="row align-items-center">
+      <div class="col-md-6 mb-4" data-aos="fade-right" data-aos-delay="300">
+        <p>
+          US $ 17.6 billion is allocated for 149 000 km of urban sewer lines and to achieve 100% solid waste collection, up from 50% today. <!-- :contentReference[oaicite:7]{index=7} -->
+        </p>
+        <p>
+          Rural and peri-urban water systems will expand by 48 billion m³, ensuring universal access across Ghana. <!-- :contentReference[oaicite:8]{index=8} -->
+        </p>
+      </div>
+      <div class="col-md-6 text-center" data-aos="zoom-in" data-aos-delay="400">
+        <img src="{{ url_for('static', filename='images/water_treatment.jpg') }}"
+             alt="Water Treatment Plant"
+             class="img-fluid rounded shadow-sm">
+      </div>
+    </div>
+  </section>
+
+  <!-- Digital Connectivity -->
+  <section class="impact-section digital mb-5" data-aos="fade-up" data-aos-delay="250">
+    <h2 class="section-subtitle" data-aos="fade-down">Digital Connectivity</h2>
+    <div class="row align-items-center">
+      <div class="col-md-6 text-center mb-4" data-aos="zoom-in" data-aos-delay="300">
+        <img src="{{ url_for('static', filename='images/ict_hub.jpg') }}"
+             alt="National ICT Hubs &amp; Smart Cities"
+             class="img-fluid rounded shadow-sm">
+      </div>
+      <div class="col-md-6" data-aos="fade-left" data-aos-delay="350">
+        <p>
+          Internet penetration, at 27.8% in 2017, is set to reach 99% by 2047 via national fibre rollouts, ICT parks and e-government platforms. <!-- :contentReference[oaicite:9]{index=9} -->
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Resilience -->
+  <section class="impact-section resilience mb-5" data-aos="fade-up" data-aos-delay="300">
+    <h2 class="section-subtitle" data-aos="fade-down">Climate &amp; Economic Resilience</h2>
+    <p data-aos="fade-right" data-aos-delay="350">
+      Ghana ranks 115th of 182 countries in vulnerability to climate change; climate-proofing infrastructure will protect agriculture (18.3% of GDP) and urban services. <!-- :contentReference[oaicite:10]{index=10} -->
+    </p>
+    <p data-aos="fade-left" data-aos-delay="400">
+      The World Bank–supported GARID project is upgrading urban drainage in Accra’s informal settlements, mitigating floods for over 2.5 million residents. <!-- :contentReference[oaicite:11]{index=11} -->
+    </p>
+  </section>
+
+  <!-- Financing -->
+  <section class="impact-section financing mb-5" data-aos="fade-up" data-aos-delay="350">
+    <h2 class="section-subtitle" data-aos="fade-down">Financing the Vision</h2>
+    <p data-aos="fade-up" data-aos-delay="400">
+      The GIP requires US $1.1 trillion from 2018–2047—about US $37.2 billion per year—through public budgets, FDI, PPPs and ODA. <!-- :contentReference[oaicite:12]{index=12} -->
+    </p>
+  </section>
+
+  <!-- Gallery -->
+  <section class="impact-gallery mb-5" data-aos="fade-up" data-aos-delay="400">
+    <h2 class="section-subtitle" data-aos="fade-down">Project Gallery</h2>
+    <div class="gallery-grid">
+      {% for img, caption, delay in [
+          ('road_network.jpg', 'New Trunk & Feeder Roads',100),
+          ('solar_farm.jpg','Utility-Scale Solar Farm',200),
+          ('water_treatment.jpg','Modern Water Treatment Plant',300),
+          ('ict_hub.jpg','National ICT Hubs & Smart Cities',400)
+      ] %}
+      <figure class="gallery-item" data-aos="zoom-in" data-aos-delay="{{delay}}">
+        <img src="{{ url_for('static', filename='images/' ~ img) }}"
+             alt="{{ caption }}"
+             class="img-fluid rounded">
+        <figcaption>{{ caption }}</figcaption>
+      </figure>
+      {% endfor %}
+    </div>
+  </section>
+
+</div>
+
+  <!-- AOS animations -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      once: true,
+      duration: 800,
+      easing: 'ease-in-out'
+    });
+  </script>
+{% endblock %}

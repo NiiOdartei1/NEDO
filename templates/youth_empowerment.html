@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+
+{% block title %}Youth Empowerment in Ghana{% endblock %}
+
+{% block content %}
+<!-- HERO SECTION -->
+<section class="container-fluid p-0 position-relative">
+    <img src="https://i.postimg.cc/Bnb5cQz4/YEA_BANNER.jpg" alt="YEA Banner" class="w-100" style="height: auto; object-fit: cover;">
+    <div class="position-absolute top-50 start-50 translate-middle text-center text-white px-3">
+      <h1 class="display-5 fw-bold">Empowering Ghana’s Youth</h1>
+      <p class="lead">Driving innovation, entrepreneurship, and development through government-led initiatives</p>
+    </div>
+  </section>  
+
+<!-- INTRODUCTION -->
+<section class="container my-5">
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="fw-bold">A National Commitment</h2>
+      <p class="lead text-muted">
+        The Government of Ghana is deeply invested in empowering its youth, creating opportunities that drive both individual and national growth. Through robust initiatives aimed at education, skill training, entrepreneurship, and employment, the government works to equip young people with the tools they need to shape a prosperous future.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- GOVERNMENT AGENCIES & INITIATIVES -->
+<section class="container my-5">
+  <h2 class="fw-bold mb-4">Key Government Agencies & Programs</h2>
+  <div class="row g-4">
+    <!-- National Youth Authority -->
+    <div class="col-md-6">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">National Youth Authority (NYA)</h5>
+          <p class="card-text">
+            Established to foster personal and professional development, the NYA plays a pivotal role in coordinating youth empowerment across Ghana, ensuring that young people have access to training, resources, and opportunities for creative expression and leadership.
+          </p>
+          <a href="https://www.nya.gov.gh/" target="_blank" class="btn btn-primary">Visit NYA</a>
+        </div>
+      </div>
+    </div>
+    <!-- Youth Employment Agency -->
+    <div class="col-md-6">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Youth Employment Agency (YEA)</h5>
+          <p class="card-text">
+            The Youth Employment Agency is dedicated to reducing unemployment among Ghana's youth by facilitating skills development, start-up programs, and sustainable job creation initiatives. It serves as a bridge between vocational training and industry opportunities.
+          </p>
+          <a href="https://yea.gov.gh/" target="_blank" class="btn btn-primary">Explore YEA Initiatives</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RECENT INITIATIVES (CARD LAYOUT) -->
+<section class="container my-5">
+  <h2 class="fw-bold mb-4">Recent Initiatives</h2>
+  <div class="row g-4">
+    <!-- Example Initiative 1 -->
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <img src="https://i.postimg.cc/7L8n49KS/shaxi.jpg" class="card-img-top" alt="Youth Enterprise Program">
+        <div class="card-body">
+          <h5 class="card-title">Youth Enterprise Program</h5>
+          <p class="card-text">
+            In partnership with private stakeholders, this program provides mentorship, seed funding, and business development resources to budding young entrepreneurs.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- Example Initiative 2 -->
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <img src="https://i.postimg.cc/zfKpH6yd/One-Million-Coders-Program-2.jpg" class="card-img-top" alt="Tech Training & Innovation">
+        <div class="card-body">
+          <h5 class="card-title">Tech Training & Innovation</h5>
+          <p class="card-text">
+            Aimed at bridging the digital divide, this initiative ensures Ghana’s youth gain practical tech skills, preparing them for careers in the emerging digital economy.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- Example Initiative 3 -->
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <img src="https://i.postimg.cc/PJ2ZKxxB/community-leadership.jpg" class="card-img-top" alt="Community Leadership">
+        <div class="card-body">
+          <h5 class="card-title">Community Leadership & Engagement</h5>
+          <p class="card-text">
+            This initiative encourages young leaders to participate in governance and community projects, fostering a spirit of volunteerism and local development.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="container my-5">
+  <h2 class="fw-bold mb-4">Gallery</h2>
+  <div class="row g-3">
+    {% set gallery_images = [
+      "https://i.postimg.cc/CKvWdzRp/youth-group-1.jpg",
+      "https://i.postimg.cc/ZR1D4BcM/youth-group-2.jpg",
+      "https://i.postimg.cc/wvMchszn/youth-conference.jpg",
+      "https://i.postimg.cc/jdq7rMzs/youth-training.jpg",
+      "https://i.postimg.cc/Kjm9jFFN/youth-empowerment.jpg",
+      "https://i.postimg.cc/05Z6MxqH/youth-debate.jpg"
+    ] %}
+    {% for img in gallery_images %}
+    <div class="col-6 col-md-4">
+      <img src="{{ img }}" class="img-fluid rounded shadow-sm" alt="Gallery image">
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

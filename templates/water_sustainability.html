@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+{% block title %}Water Sustainability{% endblock %}
+
+{% block content %}
+<!-- HERO IMAGE -->
+<section class="container-fluid p-0 mb-5">
+  <img src="https://i.postimg.cc/FKgX3XF7/Water-Sustainability-Act-Engagement-Social-Share.jpg" 
+       alt="Water Sustainability Banner" 
+       class="w-100" 
+       style="height: 300px; object-fit: cover;">
+</section>
+
+<!-- INTRODUCTION -->
+<section class="container mb-5">
+  <div class="row">
+    <div class="col-lg-8">
+      <h1 class="display-5 fw-bold">Water Sustainability</h1>
+      <p class="fst-italic">
+        Water sustainability ensures the availability and quality of water for current and future generations, balancing human needs with environmental protection. It supports agriculture, energy, ecosystems, and public health.
+      </p>
+    </div>
+    <div class="col-lg-4">
+      <img src="https://i.postimg.cc/j5p1F8SG/Sustainable-Water-Management.jpg" 
+           alt="Drip irrigation system" 
+           class="img-fluid rounded shadow-sm">
+    </div>
+  </div>
+</section>
+
+<!-- GLOBAL CHALLENGES -->
+<section class="container mb-5">
+  <article>
+    <h2 class="fw-semibold">Global Water Challenges</h2>
+    <p>
+      Around 2 billion people live in water-stressed countries. Factors such as climate change, overuse, pollution, and poor infrastructure contribute to scarcity. Agricultural irrigation consumes over 70% of freshwater globally.
+    </p>
+  </article>
+</section>
+
+<!-- STRATEGIES -->
+<section class="container mb-5">
+  <article>
+    <h2 class="fw-semibold">Strategies for Water Sustainability</h2>
+    <ul>
+      <li><strong>Efficient Irrigation:</strong> Techniques like drip and sprinkler systems minimize waste.</li>
+      <li><strong>Rainwater Harvesting:</strong> Collecting and storing rainwater for agriculture and domestic use.</li>
+      <li><strong>Water Recycling:</strong> Reusing treated wastewater for irrigation and industrial processes.</li>
+      <li><strong>Watershed Management:</strong> Conserving forests and catchment areas to improve water quality and supply.</li>
+    </ul>
+  </article>
+</section>
+
+<!-- DATA -->
+<section class="container mb-5">
+  <article>
+    <h2 class="fw-semibold">Facts & Figures</h2>
+    <p>
+      According to the UN, by 2025, half of the world’s population could be living in areas facing water scarcity. Water efficiency technologies in agriculture could reduce global water use by up to 30%.
+    </p>
+  </article>
+</section>
+
+<!-- GALLERY -->
+<section class="container mb-5">
+  <h2 class="fw-semibold mb-4">Water Sustainability in Practice</h2>
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 masonry-gallery">
+    {% set water_gallery = [
+      "https://i.postimg.cc/Xqk9M8b2/32229015080-97be739b6d-b.jpg",
+      "https://i.postimg.cc/Bb02wzdL/contour-trenches.png",
+      "https://i.postimg.cc/XNffyVCw/Rainwater-Harvesting-and-Plastic-Pond-2.jpg",
+      "https://i.postimg.cc/sD3pYtYb/Hyperion-Water_recycle_cleanup.jpg",
+      "https://i.postimg.cc/nccYjPky/clean-riverbank.jpg",
+      "https://i.postimg.cc/15z2XNNn/water_resource_management.gif"
+    ] %}
+    {% for img in water_gallery %}
+    <div class="col">
+      <img src="{{ img }}" class="img-fluid rounded shadow-sm" alt="Water practice">
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- REFERENCES -->
+<section class="container mb-5">
+  <h2 class="fw-semibold">References</h2>
+  <ol>
+    <li><a href="https://www.unwater.org/water-facts">UN Water Facts</a></li>
+    <li><a href="https://www.worldbank.org/en/topic/watersupply">World Bank on Water Supply</a></li>
+    <li><a href="https://www.fao.org/water/en/">FAO – Water Resources and Agriculture</a></li>
+    <li><a href="https://www.unep.org/explore-topics/water">UNEP – Water and Environment</a></li>
+  </ol>
+</section>
+
+
+{% endblock %}

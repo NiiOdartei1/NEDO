@@ -1,0 +1,38 @@
+{% extends "admin/layout.html" %}
+
+{% block title %}Create News{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+  <h2 class="mb-4">Create News Article</h2>
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+
+  <form method="post" action="{{ url_for('create_news') }}" enctype="multipart/form-data">
+    <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input type="text" class="form-control" id="title" name="title" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="content" class="form-label">Content</label>
+      <textarea class="form-control" id="content" name="content" rows="6" required></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label for="media" class="form-label">Upload Media (Images/Videos)</label>
+      <input type="file" class="form-control" id="media" name="media[]" accept="image/*,video/*" multiple>
+    </div>
+
+    <div class="text-end">
+      <button type="submit" class="btn btn-primary">Publish</button>
+    </div>
+  </form>
+</div>
+{% endblock %}

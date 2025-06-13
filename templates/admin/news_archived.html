@@ -1,0 +1,36 @@
+{% extends "admin/layout.html" %}
+
+{% block title %}Archived News{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+  <h2 class="header-title mb-4">Archived News</h2>
+
+  {% if archived_news %}
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Date Archived</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for news in archived_news %}
+      <tr>
+        <td>{{ news.title }}</td>
+        <td>{{ news.archived_date or "N/A" }}</td>
+        <td>
+          <!-- For example, you could add a restore button -->
+          <a href="{{ url_for('restore_news', news_id=news.id) }}" class="btn btn-sm btn-success">Restore</a>
+          <a href="{{ url_for('delete_news', news_id=news.id) }}" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this item permanently?')">Delete</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <p>No archived news found.</p>
+  {% endif %}
+</div>
+{% endblock %}

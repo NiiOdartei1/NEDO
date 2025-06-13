@@ -1,0 +1,148 @@
+{% extends "admin/layout.html" %}
+
+{% block title %}Admin Dashboard{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+  <h2 class="header-title mb-4">Welcome to the Admin Dashboard</h2>
+
+  <!-- Stat Cards -->
+  <div class="row g-4">
+
+    <!-- Total News Card -->
+    <div class="col-md-3 col-sm-6">
+      <a href="{{ url_for('news') }}" class="text-decoration-none">
+        <div class="card text-white bg-primary h-100 shadow">
+          <div class="card-body d-flex flex-column justify-content-between">
+            <div>
+              <h5 class="card-title">
+                <i class="fas fa-newspaper me-2"></i>Total News
+              </h5>
+              <h3 class="card-text">{{ total_news }}</h3>
+            </div>
+            <small>Updated just now</small>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- Active Projects Card -->
+    <div class="col-md-3 col-sm-6">
+      <a href="{{ url_for('create_project') }}" class="text-decoration-none">
+        <div class="card text-white bg-success h-100 shadow">
+          <div class="card-body d-flex flex-column justify-content-between">
+            <div>
+              <h5 class="card-title">
+                <i class="fas fa-project-diagram me-2"></i>Active Projects
+              </h5>
+              <h3 class="card-text">{{ active_projects }}</h3>
+            </div>
+            <small>Since last month</small>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- Admins Card -->
+    <div class="col-md-3 col-sm-6">
+      <a href="{{ url_for('admin_users') }}" class="text-decoration-none">
+        <div class="card text-white bg-warning h-100 shadow">
+          <div class="card-body d-flex flex-column justify-content-between">
+            <div>
+              <h5 class="card-title">
+                <i class="fas fa-user-shield me-2"></i>Admins
+              </h5>
+              <h3 class="card-text">{{ admin_count }}</h3>
+            </div>
+            <small>Secure login enabled</small>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- Newsletter Dashboard Card -->
+    <div class="col-md-3 col-sm-6">
+      <a href="{{ url_for('newsletter_dashboard') }}" class="text-decoration-none">
+        <div class="card text-white bg-info h-100 shadow">
+          <div class="card-body d-flex flex-column justify-content-between">
+            <div>
+              <h5 class="card-title">
+                <i class="fas fa-envelope me-2"></i>Newsletter
+              </h5>
+              <h3 class="card-text">{{ subscriber_count }}</h3>
+            </div>
+            <small>Manage & Send</small>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- Recent Activity Table -->
+  <div class="card mt-5 shadow-sm">
+    <div class="card-header bg-light">
+      <h5 class="mb-0">
+        <i class="fas fa-clock me-2 text-primary"></i>Recent Activity
+      </h5>
+    </div>
+    <div class="card-body p-0">
+      <table class="table table-hover mb-0">
+        <thead class="table-light">
+          <tr>
+            <th>Date</th>
+            <th>Action</th>
+            <th>User</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for act in recent_activity %}
+          <tr>
+            <td>{{ act.date }}</td>
+            <td>{{ act.action }}</td>
+            <td>{{ act.user }}</td>
+            <td>
+              <span class="badge 
+                {% if act.status == 'Success' %}bg-success
+                {% elif act.status == 'New'    %}bg-primary
+                {% elif act.status == 'Created'%}bg-info
+                {% elif act.status == 'Archived'%}bg-warning text-dark
+                {% else %}bg-secondary{% endif %}">
+                {{ act.status }}
+              </span>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Quick Shortcuts -->
+  <div class="mt-5">
+    <h5 class="text-muted mb-3">Quick Shortcuts</h5>
+    <div class="row g-3">
+      <div class="col-sm-3">
+        <a href="{{ url_for('create_news') }}" class="btn btn-outline-primary w-100">
+          <i class="fas fa-plus me-2"></i> Create News
+        </a>
+      </div>
+      <div class="col-sm-3">
+        <a href="{{ url_for('create_project') }}" class="btn btn-outline-success w-100">
+          <i class="fas fa-plus-circle me-2"></i> Create Project
+        </a>
+      </div>
+      <div class="col-sm-3">
+        <a href="{{ url_for('create_admin') }}" class="btn btn-outline-warning w-100">
+          <i class="fas fa-user-plus me-2"></i> Add Admin
+        </a>
+      </div>
+      <div class="col-sm-3">
+        <a href="/" class="btn btn-outline-secondary w-100">
+          <i class="fas fa-home me-2"></i> View Main Site
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
