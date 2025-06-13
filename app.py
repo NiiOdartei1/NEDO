@@ -68,8 +68,9 @@ def login_required(f):
     return decorated_function
 
 @app.before_request
-def make_session_permanent():
+def before_request_tasks():
     session.permanent = True
+    db.create_all()
 
 #@app.before_request
 #def ensure_seed_fund():
