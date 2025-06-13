@@ -832,7 +832,7 @@ if __name__ == '__main__':
 
     print("Starting Flask-SocketIO app…")
     try:
-        socketio.run(app, host='127.0.0.1', port=5000, debug=True, use_reloader=False)
+        socketio.run(app, host='127.0.0.1', port=5000, debug=False, use_reloader=False)
     except Exception as e:
         print(f"SocketIO server crashed with error: {e}", file=sys.stderr)
         sys.exit(1)
